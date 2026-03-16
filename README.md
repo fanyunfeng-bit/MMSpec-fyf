@@ -1,7 +1,7 @@
-# MMSpec
+# MMSpec: Benchmarking Speculative Decoding for Vision-Language Models
 
 <p align="center">
-  <strong>Benchmarking Speculative Decoding for Vision-Language Models</strong>
+  <strong>If you like our project, please give us a star ⭐ on GitHub for the latest update.</strong>
 </p>
 
 <p align="center">
