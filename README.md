@@ -6,7 +6,7 @@
 
 Code for the paper "[MMSpec: Benchmarking Speculative Decoding for Vision-Language Models](https://killthefullmoon.github.io/projects/MMSpec/)".
 
-For more details, please refer to the project page with **dataset exploration and visualization tools**: [PhyX Project Page](https://killthefullmoon.github.io/projects/PhyX/index.html).
+For more details, please refer to the project page with **dataset exploration and visualization tools**: [MMSpec Project Page](https://killthefullmoon.github.io/projects/MMSpec/).
 
 [[🌐 Project Page](https://killthefullmoon.github.io/projects/MMSpec/)] [[📖 Paper](https://arxiv.org/abs/2505.15929)] [[🤗 Checkpoints](https://huggingface.co/collections/Cloudriver/multimodal-speculative-decoding)]
 
