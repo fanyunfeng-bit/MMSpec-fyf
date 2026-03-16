@@ -4,11 +4,11 @@
   <strong>If you like our project, please give us a star ⭐ on GitHub for the latest update.</strong>
 </p>
 
-<p align="center">
-  <a href="https://killthefullmoon.github.io/projects/MMSpec/">Project Page</a> |
-  <a href="https://github.com/killthefullmoon/MMSpec">Code</a> |
-  <a href="https://huggingface.co/collections/Cloudriver/multimodal-speculative-decoding">Checkpoints</a>
-</p>
+Code for the paper "[MMSpec: Benchmarking Speculative Decoding for Vision-Language Models](https://killthefullmoon.github.io/projects/MMSpec/)".
+
+For more details, please refer to the project page with **dataset exploration and visualization tools**: [PhyX Project Page](https://killthefullmoon.github.io/projects/PhyX/index.html).
+
+[[🌐 Project Page](https://killthefullmoon.github.io/projects/MMSpec/)] [[📖 Paper](https://arxiv.org/abs/2505.15929)] [[🤗 Checkpoints](https://huggingface.co/collections/Cloudriver/multimodal-speculative-decoding)]
 
 <p align="center">
   <img src="https://killthefullmoon.github.io/projects/MMSpec/static/images/mmspec/spec_radar_qwen.png" alt="MMSpec radar comparison" width="78%">
