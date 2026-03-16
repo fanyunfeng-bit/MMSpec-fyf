@@ -1,0 +1,8 @@
+__pycache__/
+sbatch/
+.env
+.vscode/*
+MSD/
+EAGLE/
+*.log
+.hf_mirror/
