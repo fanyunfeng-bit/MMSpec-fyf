@@ -8,7 +8,7 @@ Code for the paper "[MMSpec: Benchmarking Speculative Decoding for Vision-Langua
 
 For more details, please refer to the project page with **dataset exploration and visualization tools**: [MMSpec Project Page](https://killthefullmoon.github.io/projects/MMSpec/).
 
-[[🌐 Project Page](https://killthefullmoon.github.io/projects/MMSpec/)] [[📖 Paper](https://arxiv.org/abs/2505.15929)] [[🤗 Checkpoints](https://huggingface.co/collections/Cloudriver/multimodal-speculative-decoding)]
+[[🌐 Project Page](https://killthefullmoon.github.io/projects/MMSpec/)] [[📖 Paper](https://arxiv.org/abs/2603.14989)] [[🤗 Checkpoints](https://huggingface.co/collections/Cloudriver/multimodal-speculative-decoding)]
 
 <p align="center">
   <img src="https://killthefullmoon.github.io/projects/MMSpec/static/images/mmspec/spec_radar_qwen.png" alt="MMSpec radar comparison" width="78%">
