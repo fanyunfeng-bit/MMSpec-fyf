@@ -1,0 +1,602 @@
+method,question_id,topic,category,num_turns,total_new_tokens,total_rounds,zero_accept_rounds,zero_accept_ratio,mat
+msd,mmspec_001,general vqa,default,1,16,2,nan,nan,8.0
+msd,mmspec_002,general vqa,default,1,8,1,nan,nan,8.0
+msd,mmspec_003,general vqa,default,1,11,2,nan,nan,5.5
+msd,mmspec_004,general vqa,default,1,15,2,nan,nan,7.5
+msd,mmspec_005,general vqa,default,1,14,1,nan,nan,14.0
+msd,mmspec_006,general vqa,default,1,8,1,nan,nan,8.0
+msd,mmspec_007,general vqa,default,1,11,1,nan,nan,11.0
+msd,mmspec_008,general vqa,default,1,17,2,nan,nan,8.5
+msd,mmspec_009,general vqa,default,1,12,2,nan,nan,6.0
+msd,mmspec_010,general vqa,default,1,21,4,nan,nan,5.25
+msd,mmspec_011,general vqa,default,1,9,2,nan,nan,4.5
+msd,mmspec_012,general vqa,default,1,14,3,nan,nan,4.666666666666667
+msd,mmspec_013,general vqa,default,1,13,2,nan,nan,6.5
+msd,mmspec_014,general vqa,default,1,11,1,nan,nan,11.0
+msd,mmspec_015,general vqa,default,1,14,2,nan,nan,7.0
+msd,mmspec_016,general vqa,default,1,12,2,nan,nan,6.0
+msd,mmspec_017,general vqa,default,1,13,2,nan,nan,6.5
+msd,mmspec_018,general vqa,default,1,17,3,nan,nan,5.666666666666667
+msd,mmspec_019,general vqa,default,1,14,2,nan,nan,7.0
+msd,mmspec_020,general vqa,default,1,17,3,nan,nan,5.666666666666667
+msd,mmspec_021,general vqa,default,1,11,2,nan,nan,5.5
+msd,mmspec_022,general vqa,default,1,20,3,nan,nan,6.666666666666667
+msd,mmspec_023,general vqa,default,1,22,4,nan,nan,5.5
+msd,mmspec_024,general vqa,default,1,38,7,nan,nan,5.428571428571429
+msd,mmspec_025,general vqa,default,1,19,3,nan,nan,6.333333333333333
+msd,mmspec_026,general vqa,default,1,11,2,nan,nan,5.5
+msd,mmspec_027,general vqa,default,1,22,3,nan,nan,7.333333333333333
+msd,mmspec_028,general vqa,default,1,9,1,nan,nan,9.0
+msd,mmspec_029,general vqa,default,1,17,2,nan,nan,8.5
+msd,mmspec_030,general vqa,default,1,16,2,nan,nan,8.0
+msd,mmspec_031,general vqa,default,1,20,3,nan,nan,6.666666666666667
+msd,mmspec_032,general vqa,default,1,18,3,nan,nan,6.0
+msd,mmspec_033,general vqa,default,1,10,2,nan,nan,5.0
+msd,mmspec_034,general vqa,default,1,10,2,nan,nan,5.0
+msd,mmspec_035,general vqa,default,1,14,2,nan,nan,7.0
+msd,mmspec_036,general vqa,default,1,18,3,nan,nan,6.0
+msd,mmspec_037,general vqa,default,1,31,8,nan,nan,3.875
+msd,mmspec_038,general vqa,default,1,7,0,nan,nan,nan
+msd,mmspec_039,general vqa,default,1,42,7,nan,nan,6.0
+msd,mmspec_040,general vqa,default,1,15,3,nan,nan,5.0
+msd,mmspec_041,general vqa,default,1,11,1,nan,nan,11.0
+msd,mmspec_042,general vqa,default,1,13,2,nan,nan,6.5
+msd,mmspec_043,general vqa,default,1,13,1,nan,nan,13.0
+msd,mmspec_044,general vqa,default,1,14,1,nan,nan,14.0
+msd,mmspec_045,general vqa,default,1,11,1,nan,nan,11.0
+msd,mmspec_046,general vqa,default,1,24,3,nan,nan,8.0
+msd,mmspec_047,general vqa,default,1,17,2,nan,nan,8.5
+msd,mmspec_048,general vqa,default,1,24,6,nan,nan,4.0
+msd,mmspec_049,general vqa,default,1,14,2,nan,nan,7.0
+msd,mmspec_050,general vqa,default,1,14,2,nan,nan,7.0
+msd,mmspec_051,general vqa,default,1,11,2,nan,nan,5.5
+msd,mmspec_052,general vqa,default,1,11,2,nan,nan,5.5
+msd,mmspec_053,general vqa,default,1,9,1,nan,nan,9.0
+msd,mmspec_054,general vqa,default,1,16,2,nan,nan,8.0
+msd,mmspec_055,general vqa,default,1,9,1,nan,nan,9.0
+msd,mmspec_056,general vqa,default,1,17,3,nan,nan,5.666666666666667
+msd,mmspec_057,general vqa,default,1,11,2,nan,nan,5.5
+msd,mmspec_058,general vqa,default,1,12,2,nan,nan,6.0
+msd,mmspec_059,general vqa,default,1,26,3,nan,nan,8.666666666666666
+msd,mmspec_060,general vqa,default,1,27,4,nan,nan,6.75
+msd,mmspec_061,general vqa,default,1,10,2,nan,nan,5.0
+msd,mmspec_062,general vqa,default,1,14,2,nan,nan,7.0
+msd,mmspec_063,general vqa,default,1,16,2,nan,nan,8.0
+msd,mmspec_064,general vqa,default,1,10,2,nan,nan,5.0
+msd,mmspec_065,general vqa,default,1,24,4,nan,nan,6.0
+msd,mmspec_066,general vqa,default,1,11,2,nan,nan,5.5
+msd,mmspec_067,general vqa,default,1,14,2,nan,nan,7.0
+msd,mmspec_068,general vqa,default,1,13,1,nan,nan,13.0
+msd,mmspec_069,general vqa,default,1,9,1,nan,nan,9.0
+msd,mmspec_070,general vqa,default,1,19,3,nan,nan,6.333333333333333
+msd,mmspec_071,general vqa,default,1,20,3,nan,nan,6.666666666666667
+msd,mmspec_072,general vqa,default,1,15,2,nan,nan,7.5
+msd,mmspec_073,general vqa,default,1,32,5,nan,nan,6.4
+msd,mmspec_074,general vqa,default,1,14,3,nan,nan,4.666666666666667
+msd,mmspec_075,general vqa,default,1,15,2,nan,nan,7.5
+msd,mmspec_076,general vqa,default,1,12,2,nan,nan,6.0
+msd,mmspec_077,general vqa,default,1,8,1,nan,nan,8.0
+msd,mmspec_078,general vqa,default,1,13,2,nan,nan,6.5
+msd,mmspec_079,general vqa,default,1,11,1,nan,nan,11.0
+msd,mmspec_080,general vqa,default,1,14,2,nan,nan,7.0
+msd,mmspec_081,general vqa,default,1,12,3,nan,nan,4.0
+msd,mmspec_082,general vqa,default,1,14,2,nan,nan,7.0
+msd,mmspec_083,general vqa,default,1,8,2,nan,nan,4.0
+msd,mmspec_084,general vqa,default,1,11,1,nan,nan,11.0
+msd,mmspec_085,general vqa,default,1,2,0,nan,nan,nan
+msd,mmspec_086,general vqa,default,1,16,2,nan,nan,8.0
+msd,mmspec_087,general vqa,default,1,7,1,nan,nan,7.0
+msd,mmspec_088,general vqa,default,1,10,1,nan,nan,10.0
+msd,mmspec_089,general vqa,default,1,29,4,nan,nan,7.25
+msd,mmspec_090,general vqa,default,1,13,3,nan,nan,4.333333333333333
+msd,mmspec_091,general vqa,default,1,13,2,nan,nan,6.5
+msd,mmspec_092,general vqa,default,1,12,1,nan,nan,12.0
+msd,mmspec_093,general vqa,default,1,9,1,nan,nan,9.0
+msd,mmspec_094,general vqa,default,1,15,2,nan,nan,7.5
+msd,mmspec_095,general vqa,default,1,14,2,nan,nan,7.0
+msd,mmspec_096,general vqa,default,1,14,2,nan,nan,7.0
+msd,mmspec_097,general vqa,default,1,14,1,nan,nan,14.0
+msd,mmspec_098,general vqa,default,1,18,3,nan,nan,6.0
+msd,mmspec_099,general vqa,default,1,9,1,nan,nan,9.0
+msd,mmspec_100,general vqa,default,1,19,3,nan,nan,6.333333333333333
+msd,mmspec_101,text vqa,text reading,1,18,6,nan,nan,3.0
+msd,mmspec_102,text vqa,text reading,1,20,4,nan,nan,5.0
+msd,mmspec_103,text vqa,text reading,1,14,3,nan,nan,4.666666666666667
+msd,mmspec_104,text vqa,text reading,1,132,55,nan,nan,2.4
+msd,mmspec_105,text vqa,text reading,1,17,3,nan,nan,5.666666666666667
+msd,mmspec_106,text vqa,text reading,1,21,5,nan,nan,4.2
+msd,mmspec_107,text vqa,text reading,1,32,8,nan,nan,4.0
+msd,mmspec_108,text vqa,text reading,1,27,6,nan,nan,4.5
+msd,mmspec_109,text vqa,text reading,1,16,3,nan,nan,5.333333333333333
+msd,mmspec_110,text vqa,text reading,1,28,8,nan,nan,3.5
+msd,mmspec_111,text vqa,text reading,1,23,3,nan,nan,7.666666666666667
+msd,mmspec_112,text vqa,text reading,1,9,1,nan,nan,9.0
+msd,mmspec_113,text vqa,text reading,1,16,4,nan,nan,4.0
+msd,mmspec_114,text vqa,text reading,1,25,10,nan,nan,2.5
+msd,mmspec_115,text vqa,text reading,1,17,3,nan,nan,5.666666666666667
+msd,mmspec_116,text vqa,text reading,1,15,3,nan,nan,5.0
+msd,mmspec_117,text vqa,text reading,1,29,10,nan,nan,2.9
+msd,mmspec_118,text vqa,text reading,1,8,1,nan,nan,8.0
+msd,mmspec_119,text vqa,text reading,1,14,3,nan,nan,4.666666666666667
+msd,mmspec_120,text vqa,text reading,1,12,1,nan,nan,12.0
+msd,mmspec_121,text vqa,text reading,1,56,14,nan,nan,4.0
+msd,mmspec_122,text vqa,text reading,1,16,3,nan,nan,5.333333333333333
+msd,mmspec_123,text vqa,text reading,1,107,27,nan,nan,3.962962962962963
+msd,mmspec_124,text vqa,text reading,1,25,10,nan,nan,2.5
+msd,mmspec_125,text vqa,text reading,1,25,13,nan,nan,1.9230769230769231
+msd,mmspec_126,text vqa,text reading,1,13,2,nan,nan,6.5
+msd,mmspec_127,text vqa,text reading,1,14,7,nan,nan,2.0
+msd,mmspec_128,text vqa,text reading,1,90,26,nan,nan,3.4615384615384617
+msd,mmspec_129,text vqa,text reading,1,13,3,nan,nan,4.333333333333333
+msd,mmspec_130,text vqa,text reading,1,20,5,nan,nan,4.0
+msd,mmspec_131,text vqa,text reading,1,17,4,nan,nan,4.25
+msd,mmspec_132,text vqa,text reading,1,34,8,nan,nan,4.25
+msd,mmspec_133,text vqa,text reading,1,15,2,nan,nan,7.5
+msd,mmspec_134,text vqa,text reading,1,15,3,nan,nan,5.0
+msd,mmspec_135,text vqa,text reading,1,14,2,nan,nan,7.0
+msd,mmspec_136,text vqa,text reading,1,19,5,nan,nan,3.8
+msd,mmspec_137,text vqa,text reading,1,17,4,nan,nan,4.25
+msd,mmspec_138,text vqa,text reading,1,20,5,nan,nan,4.0
+msd,mmspec_139,text vqa,text reading,1,11,2,nan,nan,5.5
+msd,mmspec_140,text vqa,text reading,1,14,4,nan,nan,3.5
+msd,mmspec_141,text vqa,text reading,1,1025,161,nan,nan,6.366459627329193
+msd,mmspec_142,text vqa,text reading,1,84,23,nan,nan,3.652173913043478
+msd,mmspec_143,text vqa,text reading,1,25,5,nan,nan,5.0
+msd,mmspec_144,text vqa,text reading,1,14,3,nan,nan,4.666666666666667
+msd,mmspec_145,text vqa,text reading,1,24,5,nan,nan,4.8
+msd,mmspec_146,text vqa,text reading,1,40,14,nan,nan,2.857142857142857
+msd,mmspec_147,text vqa,text reading,1,16,2,nan,nan,8.0
+msd,mmspec_148,text vqa,text reading,1,17,4,nan,nan,4.25
+msd,mmspec_149,text vqa,text reading,1,16,3,nan,nan,5.333333333333333
+msd,mmspec_150,text vqa,text reading,1,22,4,nan,nan,5.5
+msd,mmspec_151,text vqa,text reading,1,34,8,nan,nan,4.25
+msd,mmspec_152,text vqa,text reading,1,93,25,nan,nan,3.72
+msd,mmspec_153,text vqa,text reading,1,20,4,nan,nan,5.0
+msd,mmspec_154,text vqa,text reading,1,20,4,nan,nan,5.0
+msd,mmspec_155,text vqa,text reading,1,160,32,nan,nan,5.0
+msd,mmspec_156,text vqa,text reading,1,71,19,nan,nan,3.736842105263158
+msd,mmspec_157,text vqa,text reading,1,32,10,nan,nan,3.2
+msd,mmspec_158,text vqa,text reading,1,15,2,nan,nan,7.5
+msd,mmspec_159,text vqa,text reading,1,12,5,nan,nan,2.4
+msd,mmspec_160,text vqa,text reading,1,34,12,nan,nan,2.8333333333333335
+msd,mmspec_161,text vqa,text reading,1,16,3,nan,nan,5.333333333333333
+msd,mmspec_162,text vqa,text reading,1,17,3,nan,nan,5.666666666666667
+msd,mmspec_163,text vqa,text reading,1,14,1,nan,nan,14.0
+msd,mmspec_164,text vqa,text reading,1,86,19,nan,nan,4.526315789473684
+msd,mmspec_165,text vqa,text reading,1,85,22,nan,nan,3.8636363636363638
+msd,mmspec_166,text vqa,text reading,1,15,3,nan,nan,5.0
+msd,mmspec_167,text vqa,text reading,1,64,15,nan,nan,4.266666666666667
+msd,mmspec_168,text vqa,text reading,1,13,3,nan,nan,4.333333333333333
+msd,mmspec_169,text vqa,text reading,1,15,3,nan,nan,5.0
+msd,mmspec_170,text vqa,text reading,1,87,21,nan,nan,4.142857142857143
+msd,mmspec_171,text vqa,text reading,1,12,2,nan,nan,6.0
+msd,mmspec_172,text vqa,text reading,1,18,4,nan,nan,4.5
+msd,mmspec_173,text vqa,text reading,1,112,35,nan,nan,3.2
+msd,mmspec_174,text vqa,text reading,1,81,17,nan,nan,4.764705882352941
+msd,mmspec_175,text vqa,text reading,1,158,37,nan,nan,4.27027027027027
+msd,mmspec_176,text vqa,text reading,1,29,8,nan,nan,3.625
+msd,mmspec_177,text vqa,text reading,1,12,2,nan,nan,6.0
+msd,mmspec_178,text vqa,text reading,1,12,1,nan,nan,12.0
+msd,mmspec_179,text vqa,text reading,1,12,2,nan,nan,6.0
+msd,mmspec_180,text vqa,text reading,1,19,4,nan,nan,4.75
+msd,mmspec_181,text vqa,text reading,1,77,17,nan,nan,4.529411764705882
+msd,mmspec_182,text vqa,text reading,1,91,22,nan,nan,4.136363636363637
+msd,mmspec_183,text vqa,text reading,1,16,2,nan,nan,8.0
+msd,mmspec_184,text vqa,text reading,1,29,6,nan,nan,4.833333333333333
+msd,mmspec_185,text vqa,text reading,1,18,3,nan,nan,6.0
+msd,mmspec_186,text vqa,text reading,1,14,3,nan,nan,4.666666666666667
+msd,mmspec_187,text vqa,text reading,1,25,9,nan,nan,2.7777777777777777
+msd,mmspec_188,text vqa,text reading,1,15,3,nan,nan,5.0
+msd,mmspec_189,text vqa,text reading,1,37,12,nan,nan,3.0833333333333335
+msd,mmspec_190,text vqa,text reading,1,14,3,nan,nan,4.666666666666667
+msd,mmspec_191,text vqa,text reading,1,24,4,nan,nan,6.0
+msd,mmspec_192,text vqa,text reading,1,14,1,nan,nan,14.0
+msd,mmspec_193,text vqa,text reading,1,16,4,nan,nan,4.0
+msd,mmspec_194,text vqa,text reading,1,26,6,nan,nan,4.333333333333333
+msd,mmspec_195,text vqa,text reading,1,38,11,nan,nan,3.4545454545454546
+msd,mmspec_196,text vqa,text reading,1,85,19,nan,nan,4.473684210526316
+msd,mmspec_197,text vqa,text reading,1,22,5,nan,nan,4.4
+msd,mmspec_198,text vqa,text reading,1,25,6,nan,nan,4.166666666666667
+msd,mmspec_199,text vqa,text reading,1,10,2,nan,nan,5.0
+msd,mmspec_200,text vqa,text reading,1,15,4,nan,nan,3.75
+msd,mmspec_201,image captioning,image captioning,1,112,22,nan,nan,5.090909090909091
+msd,mmspec_202,image captioning,image captioning,1,111,21,nan,nan,5.285714285714286
+msd,mmspec_203,image captioning,image captioning,1,85,19,nan,nan,4.473684210526316
+msd,mmspec_204,image captioning,image captioning,1,114,20,nan,nan,5.7
+msd,mmspec_205,image captioning,image captioning,1,88,16,nan,nan,5.5
+msd,mmspec_206,image captioning,image captioning,1,109,22,nan,nan,4.954545454545454
+msd,mmspec_207,image captioning,image captioning,1,124,23,nan,nan,5.391304347826087
+msd,mmspec_208,image captioning,image captioning,1,126,22,nan,nan,5.7272727272727275
+msd,mmspec_209,image captioning,image captioning,1,138,25,nan,nan,5.52
+msd,mmspec_210,image captioning,image captioning,1,118,20,nan,nan,5.9
+msd,mmspec_211,image captioning,image captioning,1,108,23,nan,nan,4.695652173913044
+msd,mmspec_212,image captioning,image captioning,1,87,15,nan,nan,5.8
+msd,mmspec_213,image captioning,image captioning,1,119,22,nan,nan,5.409090909090909
+msd,mmspec_214,image captioning,image captioning,1,81,18,nan,nan,4.5
+msd,mmspec_215,image captioning,image captioning,1,148,28,nan,nan,5.285714285714286
+msd,mmspec_216,image captioning,image captioning,1,97,18,nan,nan,5.388888888888889
+msd,mmspec_217,image captioning,image captioning,1,107,19,nan,nan,5.631578947368421
+msd,mmspec_218,image captioning,image captioning,1,126,22,nan,nan,5.7272727272727275
+msd,mmspec_219,image captioning,image captioning,1,132,26,nan,nan,5.076923076923077
+msd,mmspec_220,image captioning,image captioning,1,91,16,nan,nan,5.6875
+msd,mmspec_221,image captioning,image captioning,1,176,29,nan,nan,6.068965517241379
+msd,mmspec_222,image captioning,image captioning,1,114,23,nan,nan,4.956521739130435
+msd,mmspec_223,image captioning,image captioning,1,114,21,nan,nan,5.428571428571429
+msd,mmspec_224,image captioning,image captioning,1,131,23,nan,nan,5.695652173913044
+msd,mmspec_225,image captioning,image captioning,1,123,25,nan,nan,4.92
+msd,mmspec_226,image captioning,image captioning,1,131,24,nan,nan,5.458333333333333
+msd,mmspec_227,image captioning,image captioning,1,195,37,nan,nan,5.27027027027027
+msd,mmspec_228,image captioning,image captioning,1,105,20,nan,nan,5.25
+msd,mmspec_229,image captioning,image captioning,1,91,16,nan,nan,5.6875
+msd,mmspec_230,image captioning,image captioning,1,135,27,nan,nan,5.0
+msd,mmspec_231,image captioning,image captioning,1,126,22,nan,nan,5.7272727272727275
+msd,mmspec_232,image captioning,image captioning,1,111,24,nan,nan,4.625
+msd,mmspec_233,image captioning,image captioning,1,116,22,nan,nan,5.2727272727272725
+msd,mmspec_234,image captioning,image captioning,1,135,26,nan,nan,5.1923076923076925
+msd,mmspec_235,image captioning,image captioning,1,142,25,nan,nan,5.68
+msd,mmspec_236,image captioning,image captioning,1,132,22,nan,nan,6.0
+msd,mmspec_237,image captioning,image captioning,1,124,26,nan,nan,4.769230769230769
+msd,mmspec_238,image captioning,image captioning,1,95,17,nan,nan,5.588235294117647
+msd,mmspec_239,image captioning,image captioning,1,73,15,nan,nan,4.866666666666666
+msd,mmspec_240,image captioning,image captioning,1,101,19,nan,nan,5.315789473684211
+msd,mmspec_241,image captioning,image captioning,1,123,26,nan,nan,4.730769230769231
+msd,mmspec_242,image captioning,image captioning,1,111,20,nan,nan,5.55
+msd,mmspec_243,image captioning,image captioning,1,102,22,nan,nan,4.636363636363637
+msd,mmspec_244,image captioning,image captioning,1,92,18,nan,nan,5.111111111111111
+msd,mmspec_245,image captioning,image captioning,1,136,27,nan,nan,5.037037037037037
+msd,mmspec_246,image captioning,image captioning,1,123,27,nan,nan,4.555555555555555
+msd,mmspec_247,image captioning,image captioning,1,113,22,nan,nan,5.136363636363637
+msd,mmspec_248,image captioning,image captioning,1,127,27,nan,nan,4.703703703703703
+msd,mmspec_249,image captioning,image captioning,1,117,23,nan,nan,5.086956521739131
+msd,mmspec_250,image captioning,image captioning,1,116,22,nan,nan,5.2727272727272725
+msd,mmspec_251,image captioning,image captioning,1,124,23,nan,nan,5.391304347826087
+msd,mmspec_252,image captioning,image captioning,1,128,24,nan,nan,5.333333333333333
+msd,mmspec_253,image captioning,image captioning,1,99,20,nan,nan,4.95
+msd,mmspec_254,image captioning,image captioning,1,112,22,nan,nan,5.090909090909091
+msd,mmspec_255,image captioning,image captioning,1,101,19,nan,nan,5.315789473684211
+msd,mmspec_256,image captioning,image captioning,1,147,26,nan,nan,5.653846153846154
+msd,mmspec_257,image captioning,image captioning,1,68,17,nan,nan,4.0
+msd,mmspec_258,image captioning,image captioning,1,139,26,nan,nan,5.346153846153846
+msd,mmspec_259,image captioning,image captioning,1,141,27,nan,nan,5.222222222222222
+msd,mmspec_260,image captioning,image captioning,1,150,30,nan,nan,5.0
+msd,mmspec_261,image captioning,image captioning,1,145,25,nan,nan,5.8
+msd,mmspec_262,image captioning,image captioning,1,119,24,nan,nan,4.958333333333333
+msd,mmspec_263,image captioning,image captioning,1,107,21,nan,nan,5.095238095238095
+msd,mmspec_264,image captioning,image captioning,1,138,29,nan,nan,4.758620689655173
+msd,mmspec_265,image captioning,image captioning,1,126,24,nan,nan,5.25
+msd,mmspec_266,image captioning,image captioning,1,77,17,nan,nan,4.529411764705882
+msd,mmspec_267,image captioning,image captioning,1,125,24,nan,nan,5.208333333333333
+msd,mmspec_268,image captioning,image captioning,1,144,25,nan,nan,5.76
+msd,mmspec_269,image captioning,image captioning,1,148,32,nan,nan,4.625
+msd,mmspec_270,image captioning,image captioning,1,89,18,nan,nan,4.944444444444445
+msd,mmspec_271,image captioning,image captioning,1,136,25,nan,nan,5.44
+msd,mmspec_272,image captioning,image captioning,1,81,19,nan,nan,4.2631578947368425
+msd,mmspec_273,image captioning,image captioning,1,137,24,nan,nan,5.708333333333333
+msd,mmspec_274,image captioning,image captioning,1,115,24,nan,nan,4.791666666666667
+msd,mmspec_275,image captioning,image captioning,1,131,24,nan,nan,5.458333333333333
+msd,mmspec_276,image captioning,image captioning,1,124,24,nan,nan,5.166666666666667
+msd,mmspec_277,image captioning,image captioning,1,119,21,nan,nan,5.666666666666667
+msd,mmspec_278,image captioning,image captioning,1,98,19,nan,nan,5.157894736842105
+msd,mmspec_279,image captioning,image captioning,1,130,25,nan,nan,5.2
+msd,mmspec_280,image captioning,image captioning,1,106,21,nan,nan,5.0476190476190474
+msd,mmspec_281,image captioning,image captioning,1,125,23,nan,nan,5.434782608695652
+msd,mmspec_282,image captioning,image captioning,1,146,28,nan,nan,5.214285714285714
+msd,mmspec_283,image captioning,image captioning,1,145,29,nan,nan,5.0
+msd,mmspec_284,image captioning,image captioning,1,127,21,nan,nan,6.0476190476190474
+msd,mmspec_285,image captioning,image captioning,1,123,23,nan,nan,5.3478260869565215
+msd,mmspec_286,image captioning,image captioning,1,107,21,nan,nan,5.095238095238095
+msd,mmspec_287,image captioning,image captioning,1,56,13,nan,nan,4.3076923076923075
+msd,mmspec_288,image captioning,image captioning,1,142,26,nan,nan,5.461538461538462
+msd,mmspec_289,image captioning,image captioning,1,122,25,nan,nan,4.88
+msd,mmspec_290,image captioning,image captioning,1,144,26,nan,nan,5.538461538461538
+msd,mmspec_291,image captioning,image captioning,1,135,27,nan,nan,5.0
+msd,mmspec_292,image captioning,image captioning,1,62,14,nan,nan,4.428571428571429
+msd,mmspec_293,image captioning,image captioning,1,101,17,nan,nan,5.9411764705882355
+msd,mmspec_294,image captioning,image captioning,1,118,24,nan,nan,4.916666666666667
+msd,mmspec_295,image captioning,image captioning,1,97,18,nan,nan,5.388888888888889
+msd,mmspec_296,image captioning,image captioning,1,81,15,nan,nan,5.4
+msd,mmspec_297,image captioning,image captioning,1,99,18,nan,nan,5.5
+msd,mmspec_298,image captioning,image captioning,1,130,26,nan,nan,5.0
+msd,mmspec_299,image captioning,image captioning,1,115,22,nan,nan,5.2272727272727275
+msd,mmspec_300,image captioning,image captioning,1,94,21,nan,nan,4.476190476190476
+msd,mmspec_301,chart understanding,chart reasoning,1,33,7,nan,nan,4.714285714285714
+msd,mmspec_302,chart understanding,chart reasoning,1,27,5,nan,nan,5.4
+msd,mmspec_303,chart understanding,chart reasoning,1,25,5,nan,nan,5.0
+msd,mmspec_304,chart understanding,chart reasoning,1,32,6,nan,nan,5.333333333333333
+msd,mmspec_305,chart understanding,chart reasoning,1,92,22,nan,nan,4.181818181818182
+msd,mmspec_306,chart understanding,chart reasoning,1,47,8,nan,nan,5.875
+msd,mmspec_307,chart understanding,chart reasoning,1,23,4,nan,nan,5.75
+msd,mmspec_308,chart understanding,chart reasoning,1,27,4,nan,nan,6.75
+msd,mmspec_309,chart understanding,chart reasoning,1,16,3,nan,nan,5.333333333333333
+msd,mmspec_310,chart understanding,chart reasoning,1,39,7,nan,nan,5.571428571428571
+msd,mmspec_311,chart understanding,chart reasoning,1,13,2,nan,nan,6.5
+msd,mmspec_312,chart understanding,chart reasoning,1,38,7,nan,nan,5.428571428571429
+msd,mmspec_313,chart understanding,chart reasoning,1,16,2,nan,nan,8.0
+msd,mmspec_314,chart understanding,chart reasoning,1,77,17,nan,nan,4.529411764705882
+msd,mmspec_315,chart understanding,chart reasoning,1,84,20,nan,nan,4.2
+msd,mmspec_316,chart understanding,chart reasoning,1,32,5,nan,nan,6.4
+msd,mmspec_317,chart understanding,chart reasoning,1,70,14,nan,nan,5.0
+msd,mmspec_318,chart understanding,chart reasoning,1,90,22,nan,nan,4.090909090909091
+msd,mmspec_319,chart understanding,chart reasoning,1,26,5,nan,nan,5.2
+msd,mmspec_320,chart understanding,chart reasoning,1,88,22,nan,nan,4.0
+msd,mmspec_321,chart understanding,chart reasoning,1,26,5,nan,nan,5.2
+msd,mmspec_322,chart understanding,chart reasoning,1,50,10,nan,nan,5.0
+msd,mmspec_323,chart understanding,chart reasoning,1,1024,150,nan,nan,6.826666666666667
+msd,mmspec_324,chart understanding,chart reasoning,1,106,21,nan,nan,5.0476190476190474
+msd,mmspec_325,chart understanding,chart reasoning,1,23,4,nan,nan,5.75
+msd,mmspec_326,chart understanding,chart reasoning,1,136,32,nan,nan,4.25
+msd,mmspec_327,chart understanding,chart reasoning,1,27,6,nan,nan,4.5
+msd,mmspec_328,chart understanding,chart reasoning,1,23,4,nan,nan,5.75
+msd,mmspec_329,chart understanding,chart reasoning,1,58,14,nan,nan,4.142857142857143
+msd,mmspec_330,chart understanding,chart reasoning,1,144,32,nan,nan,4.5
+msd,mmspec_331,chart understanding,chart reasoning,1,17,2,nan,nan,8.5
+msd,mmspec_332,chart understanding,chart reasoning,1,26,6,nan,nan,4.333333333333333
+msd,mmspec_333,chart understanding,chart reasoning,1,44,14,nan,nan,3.142857142857143
+msd,mmspec_334,chart understanding,chart reasoning,1,46,8,nan,nan,5.75
+msd,mmspec_335,chart understanding,chart reasoning,1,16,3,nan,nan,5.333333333333333
+msd,mmspec_336,chart understanding,chart reasoning,1,82,20,nan,nan,4.1
+msd,mmspec_337,chart understanding,chart reasoning,1,190,39,nan,nan,4.871794871794871
+msd,mmspec_338,chart understanding,chart reasoning,1,85,21,nan,nan,4.0476190476190474
+msd,mmspec_339,chart understanding,chart reasoning,1,329,72,nan,nan,4.569444444444445
+msd,mmspec_340,chart understanding,chart reasoning,1,39,7,nan,nan,5.571428571428571
+msd,mmspec_341,chart understanding,chart reasoning,1,55,16,nan,nan,3.4375
+msd,mmspec_342,chart understanding,chart reasoning,1,21,5,nan,nan,4.2
+msd,mmspec_343,chart understanding,chart reasoning,1,108,25,nan,nan,4.32
+msd,mmspec_344,chart understanding,chart reasoning,1,27,5,nan,nan,5.4
+msd,mmspec_345,chart understanding,chart reasoning,1,24,4,nan,nan,6.0
+msd,mmspec_346,chart understanding,chart reasoning,1,18,3,nan,nan,6.0
+msd,mmspec_347,chart understanding,chart reasoning,1,143,33,nan,nan,4.333333333333333
+msd,mmspec_348,chart understanding,chart reasoning,1,17,3,nan,nan,5.666666666666667
+msd,mmspec_349,chart understanding,chart reasoning,1,24,3,nan,nan,8.0
+msd,mmspec_350,chart understanding,chart reasoning,1,28,5,nan,nan,5.6
+msd,mmspec_351,chart understanding,chart reasoning,1,61,14,nan,nan,4.357142857142857
+msd,mmspec_352,chart understanding,chart reasoning,1,57,10,nan,nan,5.7
+msd,mmspec_353,chart understanding,chart reasoning,1,47,8,nan,nan,5.875
+msd,mmspec_354,chart understanding,chart reasoning,1,17,4,nan,nan,4.25
+msd,mmspec_355,chart understanding,chart reasoning,1,30,9,nan,nan,3.3333333333333335
+msd,mmspec_356,chart understanding,chart reasoning,1,22,4,nan,nan,5.5
+msd,mmspec_357,chart understanding,chart reasoning,1,20,4,nan,nan,5.0
+msd,mmspec_358,chart understanding,chart reasoning,1,121,25,nan,nan,4.84
+msd,mmspec_359,chart understanding,chart reasoning,1,27,5,nan,nan,5.4
+msd,mmspec_360,chart understanding,chart reasoning,1,31,6,nan,nan,5.166666666666667
+msd,mmspec_361,chart understanding,chart reasoning,1,25,5,nan,nan,5.0
+msd,mmspec_362,chart understanding,chart reasoning,1,95,25,nan,nan,3.8
+msd,mmspec_363,chart understanding,chart reasoning,1,73,14,nan,nan,5.214285714285714
+msd,mmspec_364,chart understanding,chart reasoning,1,26,4,nan,nan,6.5
+msd,mmspec_365,chart understanding,chart reasoning,1,1028,150,nan,nan,6.8533333333333335
+msd,mmspec_366,chart understanding,chart reasoning,1,158,35,nan,nan,4.514285714285714
+msd,mmspec_367,chart understanding,chart reasoning,1,16,3,nan,nan,5.333333333333333
+msd,mmspec_368,chart understanding,chart reasoning,1,68,15,nan,nan,4.533333333333333
+msd,mmspec_369,chart understanding,chart reasoning,1,277,54,nan,nan,5.12962962962963
+msd,mmspec_370,chart understanding,chart reasoning,1,95,20,nan,nan,4.75
+msd,mmspec_371,chart understanding,chart reasoning,1,23,4,nan,nan,5.75
+msd,mmspec_372,chart understanding,chart reasoning,1,21,6,nan,nan,3.5
+msd,mmspec_373,chart understanding,chart reasoning,1,30,5,nan,nan,6.0
+msd,mmspec_374,chart understanding,chart reasoning,1,16,2,nan,nan,8.0
+msd,mmspec_375,chart understanding,chart reasoning,1,209,46,nan,nan,4.543478260869565
+msd,mmspec_376,chart understanding,chart reasoning,1,24,5,nan,nan,4.8
+msd,mmspec_377,chart understanding,chart reasoning,1,23,4,nan,nan,5.75
+msd,mmspec_378,chart understanding,chart reasoning,1,42,10,nan,nan,4.2
+msd,mmspec_379,chart understanding,chart reasoning,1,41,10,nan,nan,4.1
+msd,mmspec_380,chart understanding,chart reasoning,1,71,16,nan,nan,4.4375
+msd,mmspec_381,chart understanding,chart reasoning,1,26,6,nan,nan,4.333333333333333
+msd,mmspec_382,chart understanding,chart reasoning,1,34,9,nan,nan,3.7777777777777777
+msd,mmspec_383,chart understanding,chart reasoning,1,27,4,nan,nan,6.75
+msd,mmspec_384,chart understanding,chart reasoning,1,29,8,nan,nan,3.625
+msd,mmspec_385,chart understanding,chart reasoning,1,19,4,nan,nan,4.75
+msd,mmspec_386,chart understanding,chart reasoning,1,105,25,nan,nan,4.2
+msd,mmspec_387,chart understanding,chart reasoning,1,110,28,nan,nan,3.9285714285714284
+msd,mmspec_388,chart understanding,chart reasoning,1,28,4,nan,nan,7.0
+msd,mmspec_389,chart understanding,chart reasoning,1,52,12,nan,nan,4.333333333333333
+msd,mmspec_390,chart understanding,chart reasoning,1,85,22,nan,nan,3.8636363636363638
+msd,mmspec_391,chart understanding,chart reasoning,1,18,4,nan,nan,4.5
+msd,mmspec_392,chart understanding,chart reasoning,1,12,2,nan,nan,6.0
+msd,mmspec_393,chart understanding,chart reasoning,1,30,5,nan,nan,6.0
+msd,mmspec_394,chart understanding,chart reasoning,1,19,3,nan,nan,6.333333333333333
+msd,mmspec_395,chart understanding,chart reasoning,1,249,55,nan,nan,4.527272727272727
+msd,mmspec_396,chart understanding,chart reasoning,1,1027,153,nan,nan,6.712418300653595
+msd,mmspec_397,chart understanding,chart reasoning,1,72,15,nan,nan,4.8
+msd,mmspec_398,chart understanding,chart reasoning,1,59,15,nan,nan,3.933333333333333
+msd,mmspec_399,chart understanding,chart reasoning,1,40,9,nan,nan,4.444444444444445
+msd,mmspec_400,chart understanding,chart reasoning,1,23,4,nan,nan,5.75
+msd,mmspec_401,complex reasoning pro,Manage,1,8,3,nan,nan,2.6666666666666665
+msd,mmspec_402,complex reasoning pro,History,1,93,22,nan,nan,4.2272727272727275
+msd,mmspec_403,complex reasoning pro,Computer_Science,1,19,3,nan,nan,6.333333333333333
+msd,mmspec_404,complex reasoning pro,Mechanical_Engineering,1,23,4,nan,nan,5.75
+msd,mmspec_405,complex reasoning pro,Marketing,1,276,59,nan,nan,4.677966101694915
+msd,mmspec_406,complex reasoning pro,Pharmacy,1,82,16,nan,nan,5.125
+msd,mmspec_407,complex reasoning pro,Psychology,1,18,3,nan,nan,6.0
+msd,mmspec_408,complex reasoning pro,Computer_Science,1,12,1,nan,nan,12.0
+msd,mmspec_409,complex reasoning pro,Energy_and_Power,1,755,165,nan,nan,4.575757575757576
+msd,mmspec_410,complex reasoning pro,Computer_Science,1,142,30,nan,nan,4.733333333333333
+msd,mmspec_411,complex reasoning pro,Energy_and_Power,1,31,6,nan,nan,5.166666666666667
+msd,mmspec_412,complex reasoning pro,Sociology,1,6,1,nan,nan,6.0
+msd,mmspec_413,complex reasoning pro,Chemistry,1,35,9,nan,nan,3.888888888888889
+msd,mmspec_414,complex reasoning pro,Physics,1,12,3,nan,nan,4.0
+msd,mmspec_415,complex reasoning pro,Public_Health,1,18,4,nan,nan,4.5
+msd,mmspec_416,complex reasoning pro,Mechanical_Engineering,1,234,49,nan,nan,4.775510204081633
+msd,mmspec_417,complex reasoning pro,Economics,1,11,2,nan,nan,5.5
+msd,mmspec_418,complex reasoning pro,Pharmacy,1,31,5,nan,nan,6.2
+msd,mmspec_419,complex reasoning pro,Physics,1,51,13,nan,nan,3.923076923076923
+msd,mmspec_420,complex reasoning pro,Physics,1,23,3,nan,nan,7.666666666666667
+msd,mmspec_421,complex reasoning pro,Math,1,34,5,nan,nan,6.8
+msd,mmspec_422,complex reasoning pro,Physics,1,2,0,nan,nan,nan
+msd,mmspec_423,complex reasoning pro,Music,1,42,10,nan,nan,4.2
+msd,mmspec_424,complex reasoning pro,Accounting,1,483,107,nan,nan,4.514018691588785
+msd,mmspec_425,complex reasoning pro,Diagnostics_and_Laboratory_Medicine,1,8,1,nan,nan,8.0
+msd,mmspec_426,complex reasoning pro,Agriculture,1,6,1,nan,nan,6.0
+msd,mmspec_427,complex reasoning pro,Economics,1,549,105,nan,nan,5.228571428571429
+msd,mmspec_428,complex reasoning pro,Chemistry,1,143,41,nan,nan,3.4878048780487805
+msd,mmspec_429,complex reasoning pro,Clinical_Medicine,1,101,24,nan,nan,4.208333333333333
+msd,mmspec_430,complex reasoning pro,Economics,1,25,6,nan,nan,4.166666666666667
+msd,mmspec_431,complex reasoning pro,Music,1,2,0,nan,nan,nan
+msd,mmspec_432,complex reasoning pro,Basic_Medical_Science,1,10,2,nan,nan,5.0
+msd,mmspec_433,complex reasoning pro,Chemistry,1,13,3,nan,nan,4.333333333333333
+msd,mmspec_434,complex reasoning pro,Accounting,1,261,53,nan,nan,4.9245283018867925
+msd,mmspec_435,complex reasoning pro,Manage,1,34,7,nan,nan,4.857142857142857
+msd,mmspec_436,complex reasoning pro,Art,1,10,3,nan,nan,3.3333333333333335
+msd,mmspec_437,complex reasoning pro,Design,1,13,2,nan,nan,6.5
+msd,mmspec_438,complex reasoning pro,Literature,1,4,0,nan,nan,nan
+msd,mmspec_439,complex reasoning pro,Economics,1,60,17,nan,nan,3.5294117647058822
+msd,mmspec_440,complex reasoning pro,Literature,1,7,1,nan,nan,7.0
+msd,mmspec_441,complex reasoning pro,Design,1,97,26,nan,nan,3.730769230769231
+msd,mmspec_442,complex reasoning pro,Manage,1,2,0,nan,nan,nan
+msd,mmspec_443,complex reasoning pro,Economics,1,10,1,nan,nan,10.0
+msd,mmspec_444,complex reasoning pro,Economics,1,136,30,nan,nan,4.533333333333333
+msd,mmspec_445,complex reasoning pro,Design,1,5,1,nan,nan,5.0
+msd,mmspec_446,complex reasoning pro,Biology,1,22,5,nan,nan,4.4
+msd,mmspec_447,complex reasoning pro,History,1,112,28,nan,nan,4.0
+msd,mmspec_448,complex reasoning pro,Design,1,3,1,nan,nan,3.0
+msd,mmspec_449,complex reasoning pro,Music,1,5,0,nan,nan,nan
+msd,mmspec_450,complex reasoning pro,Clinical_Medicine,1,87,22,nan,nan,3.9545454545454546
+msd,mmspec_451,complex reasoning pro,Manage,1,10,1,nan,nan,10.0
+msd,mmspec_452,complex reasoning pro,Physics,1,82,16,nan,nan,5.125
+msd,mmspec_453,complex reasoning pro,Electronics,1,1024,177,nan,nan,5.785310734463277
+msd,mmspec_454,complex reasoning pro,Marketing,1,285,57,nan,nan,5.0
+msd,mmspec_455,complex reasoning pro,Finance,1,539,120,nan,nan,4.491666666666666
+msd,mmspec_456,complex reasoning pro,Architecture_and_Engineering,1,182,42,nan,nan,4.333333333333333
+msd,mmspec_457,complex reasoning pro,Clinical_Medicine,1,17,4,nan,nan,4.25
+msd,mmspec_458,complex reasoning pro,Finance,1,82,17,nan,nan,4.823529411764706
+msd,mmspec_459,complex reasoning pro,Electronics,1,958,177,nan,nan,5.4124293785310735
+msd,mmspec_460,complex reasoning pro,Art_Theory,1,23,3,nan,nan,7.666666666666667
+msd,mmspec_461,complex reasoning pro,Energy_and_Power,1,291,68,nan,nan,4.279411764705882
+msd,mmspec_462,complex reasoning pro,Art_Theory,1,6,2,nan,nan,3.0
+msd,mmspec_463,complex reasoning pro,Geography,1,23,3,nan,nan,7.666666666666667
+msd,mmspec_464,complex reasoning pro,Sociology,1,17,4,nan,nan,4.25
+msd,mmspec_465,complex reasoning pro,History,1,134,44,nan,nan,3.0454545454545454
+msd,mmspec_466,complex reasoning pro,Art,1,5,0,nan,nan,nan
+msd,mmspec_467,complex reasoning pro,Music,1,4,0,nan,nan,nan
+msd,mmspec_468,complex reasoning pro,Marketing,1,13,3,nan,nan,4.333333333333333
+msd,mmspec_469,complex reasoning pro,Music,1,83,18,nan,nan,4.611111111111111
+msd,mmspec_470,complex reasoning pro,Public_Health,1,217,52,nan,nan,4.173076923076923
+msd,mmspec_471,complex reasoning pro,Chemistry,1,23,4,nan,nan,5.75
+msd,mmspec_472,complex reasoning pro,Physics,1,13,2,nan,nan,6.5
+msd,mmspec_473,complex reasoning pro,Geography,1,27,6,nan,nan,4.5
+msd,mmspec_474,complex reasoning pro,Physics,1,11,1,nan,nan,11.0
+msd,mmspec_475,complex reasoning pro,Art,1,15,3,nan,nan,5.0
+msd,mmspec_476,complex reasoning pro,Geography,1,117,27,nan,nan,4.333333333333333
+msd,mmspec_477,complex reasoning pro,Manage,1,15,3,nan,nan,5.0
+msd,mmspec_478,complex reasoning pro,Music,1,2,0,nan,nan,nan
+msd,mmspec_479,complex reasoning pro,Basic_Medical_Science,1,23,5,nan,nan,4.6
+msd,mmspec_480,complex reasoning pro,Public_Health,1,14,3,nan,nan,4.666666666666667
+msd,mmspec_481,complex reasoning pro,Pharmacy,1,21,5,nan,nan,4.2
+msd,mmspec_482,complex reasoning pro,Clinical_Medicine,1,33,7,nan,nan,4.714285714285714
+msd,mmspec_483,complex reasoning pro,Materials,1,94,23,nan,nan,4.086956521739131
+msd,mmspec_484,complex reasoning pro,Manage,1,124,36,nan,nan,3.4444444444444446
+msd,mmspec_485,complex reasoning pro,Art_Theory,1,4,0,nan,nan,nan
+msd,mmspec_486,complex reasoning pro,Economics,1,30,7,nan,nan,4.285714285714286
+msd,mmspec_487,complex reasoning pro,Electronics,1,37,5,nan,nan,7.4
+msd,mmspec_488,complex reasoning pro,Sociology,1,94,21,nan,nan,4.476190476190476
+msd,mmspec_489,complex reasoning pro,Materials,1,285,68,nan,nan,4.1911764705882355
+msd,mmspec_490,complex reasoning pro,Music,1,7,1,nan,nan,7.0
+msd,mmspec_491,complex reasoning pro,Literature,1,5,1,nan,nan,5.0
+msd,mmspec_492,complex reasoning pro,Geography,1,3,1,nan,nan,3.0
+msd,mmspec_493,complex reasoning pro,Basic_Medical_Science,1,18,3,nan,nan,6.0
+msd,mmspec_494,complex reasoning pro,Music,1,3,0,nan,nan,nan
+msd,mmspec_495,complex reasoning pro,Finance,1,381,80,nan,nan,4.7625
+msd,mmspec_496,complex reasoning pro,Marketing,1,64,11,nan,nan,5.818181818181818
+msd,mmspec_497,complex reasoning pro,Marketing,1,71,13,nan,nan,5.461538461538462
+msd,mmspec_498,complex reasoning pro,Materials,1,18,3,nan,nan,6.0
+msd,mmspec_499,complex reasoning pro,Biology,1,47,11,nan,nan,4.2727272727272725
+msd,mmspec_500,complex reasoning pro,Materials,1,21,5,nan,nan,4.2
+msd,mmspec_501,multi-turn conversation,Astronomy,3,234,52,nan,nan,4.5
+msd,mmspec_502,multi-turn conversation,Home Renovation,3,915,192,nan,nan,4.765625
+msd,mmspec_503,multi-turn conversation,Game Playing,3,266,60,nan,nan,4.433333333333334
+msd,mmspec_504,multi-turn conversation,Food Recipe,3,1042,189,nan,nan,5.5132275132275135
+msd,mmspec_505,multi-turn conversation,Food Recipe,3,261,51,nan,nan,5.117647058823529
+msd,mmspec_506,multi-turn conversation,Gardening Tips,3,267,60,nan,nan,4.45
+msd,mmspec_507,multi-turn conversation,Food Recipe,3,437,99,nan,nan,4.414141414141414
+msd,mmspec_508,multi-turn conversation,Gardening Tips,3,392,95,nan,nan,4.126315789473685
+msd,mmspec_509,multi-turn conversation,Astronomy,3,430,98,nan,nan,4.387755102040816
+msd,mmspec_510,multi-turn conversation,Home Renovation,3,889,189,nan,nan,4.703703703703703
+msd,mmspec_511,multi-turn conversation,Food Recipe,3,211,45,nan,nan,4.688888888888889
+msd,mmspec_512,multi-turn conversation,Astronomy,3,375,92,nan,nan,4.076086956521739
+msd,mmspec_513,multi-turn conversation,Astronomy,3,369,91,nan,nan,4.054945054945055
+msd,mmspec_514,multi-turn conversation,Game Playing,3,860,203,nan,nan,4.236453201970443
+msd,mmspec_515,multi-turn conversation,Gardening Tips,3,598,153,nan,nan,3.9084967320261437
+msd,mmspec_516,multi-turn conversation,Gestures Understanding,3,385,92,nan,nan,4.184782608695652
+msd,mmspec_517,multi-turn conversation,Food Recipe,3,646,150,nan,nan,4.306666666666667
+msd,mmspec_518,multi-turn conversation,Astronomy,3,500,121,nan,nan,4.132231404958677
+msd,mmspec_519,multi-turn conversation,Gardening Tips,3,497,141,nan,nan,3.524822695035461
+msd,mmspec_520,multi-turn conversation,Astronomy,3,192,48,nan,nan,4.0
+msd,mmspec_521,multi-turn conversation,Food Recipe,3,118,28,nan,nan,4.214285714285714
+msd,mmspec_522,multi-turn conversation,Gestures Understanding,3,418,97,nan,nan,4.309278350515464
+msd,mmspec_523,multi-turn conversation,Home Renovation,3,981,204,nan,nan,4.8088235294117645
+msd,mmspec_524,multi-turn conversation,Food Recipe,3,312,61,nan,nan,5.114754098360656
+msd,mmspec_525,multi-turn conversation,Astronomy,3,336,81,nan,nan,4.148148148148148
+msd,mmspec_526,multi-turn conversation,Game Playing,3,181,39,nan,nan,4.641025641025641
+msd,mmspec_527,multi-turn conversation,Game Playing,3,139,32,nan,nan,4.34375
+msd,mmspec_528,multi-turn conversation,Game Playing,3,426,99,nan,nan,4.303030303030303
+msd,mmspec_529,multi-turn conversation,Gardening Tips,3,228,57,nan,nan,4.0
+msd,mmspec_530,multi-turn conversation,Home Renovation,3,398,90,nan,nan,4.4222222222222225
+msd,mmspec_531,multi-turn conversation,Food Recipe,3,538,104,nan,nan,5.173076923076923
+msd,mmspec_532,multi-turn conversation,Home Renovation,3,616,119,nan,nan,5.176470588235294
+msd,mmspec_533,multi-turn conversation,Gestures Understanding,3,180,37,nan,nan,4.864864864864865
+msd,mmspec_534,multi-turn conversation,Home Renovation,3,222,48,nan,nan,4.625
+msd,mmspec_535,multi-turn conversation,Home Renovation,3,503,99,nan,nan,5.08080808080808
+msd,mmspec_536,multi-turn conversation,Game Playing,3,531,117,nan,nan,4.538461538461538
+msd,mmspec_537,multi-turn conversation,Exercise,3,865,148,nan,nan,5.844594594594595
+msd,mmspec_538,multi-turn conversation,Food Recipe,3,558,120,nan,nan,4.65
+msd,mmspec_539,multi-turn conversation,Home Renovation,3,606,135,nan,nan,4.488888888888889
+msd,mmspec_540,multi-turn conversation,Home Renovation,3,775,177,nan,nan,4.378531073446328
+msd,mmspec_541,multi-turn conversation,Game Playing,3,540,118,nan,nan,4.576271186440678
+msd,mmspec_542,multi-turn conversation,Astronomy,3,671,180,nan,nan,3.727777777777778
+msd,mmspec_543,multi-turn conversation,Gestures Understanding,3,476,112,nan,nan,4.25
+msd,mmspec_544,multi-turn conversation,Food Recipe,3,502,97,nan,nan,5.175257731958763
+msd,mmspec_545,multi-turn conversation,Game Playing,3,990,225,nan,nan,4.4
+msd,mmspec_546,multi-turn conversation,Game Playing,3,780,170,nan,nan,4.588235294117647
+msd,mmspec_547,multi-turn conversation,Astronomy,3,570,144,nan,nan,3.9583333333333335
+msd,mmspec_548,multi-turn conversation,charts,2,436,98,nan,nan,4.448979591836735
+msd,mmspec_549,multi-turn conversation,charts,2,265,55,nan,nan,4.818181818181818
+msd,mmspec_550,multi-turn conversation,charts,3,288,60,nan,nan,4.8
+msd,mmspec_551,multi-turn conversation,charts,3,398,100,nan,nan,3.98
+msd,mmspec_552,multi-turn conversation,charts,2,213,50,nan,nan,4.26
+msd,mmspec_553,multi-turn conversation,charts,3,418,94,nan,nan,4.446808510638298
+msd,mmspec_554,multi-turn conversation,diagrams,2,169,39,nan,nan,4.333333333333333
+msd,mmspec_555,multi-turn conversation,diagrams,2,211,52,nan,nan,4.0576923076923075
+msd,mmspec_556,multi-turn conversation,diagrams,2,236,53,nan,nan,4.452830188679245
+msd,mmspec_557,multi-turn conversation,diagrams,2,264,69,nan,nan,3.8260869565217392
+msd,mmspec_558,multi-turn conversation,diagrams,2,322,67,nan,nan,4.8059701492537314
+msd,mmspec_559,multi-turn conversation,diagrams,4,632,146,nan,nan,4.328767123287672
+msd,mmspec_560,multi-turn conversation,diagrams,3,381,78,nan,nan,4.884615384615385
+msd,mmspec_561,multi-turn conversation,tables,2,166,34,nan,nan,4.882352941176471
+msd,mmspec_562,multi-turn conversation,tables,2,208,43,nan,nan,4.837209302325581
+msd,mmspec_563,multi-turn conversation,tables,2,744,153,nan,nan,4.862745098039215
+msd,mmspec_564,multi-turn conversation,tables,2,447,98,nan,nan,4.561224489795919
+msd,mmspec_565,multi-turn conversation,tables,2,1125,193,nan,nan,5.829015544041451
+msd,mmspec_566,multi-turn conversation,pdf_pages,2,113,28,nan,nan,4.035714285714286
+msd,mmspec_567,multi-turn conversation,pdf_pages,2,169,37,nan,nan,4.5675675675675675
+msd,mmspec_568,multi-turn conversation,misc,2,126,29,nan,nan,4.344827586206897
+msd,mmspec_569,multi-turn conversation,misc,2,152,39,nan,nan,3.8974358974358974
+msd,mmspec_570,multi-turn conversation,misc,2,256,60,nan,nan,4.266666666666667
+msd,mmspec_571,multi-turn conversation,charts,1,341,75,nan,nan,4.546666666666667
+msd,mmspec_572,multi-turn conversation,charts,1,236,57,nan,nan,4.140350877192983
+msd,mmspec_573,multi-turn conversation,charts,1,138,32,nan,nan,4.3125
+msd,mmspec_574,multi-turn conversation,charts,1,151,35,nan,nan,4.314285714285714
+msd,mmspec_575,multi-turn conversation,charts,1,142,36,nan,nan,3.9444444444444446
+msd,mmspec_576,multi-turn conversation,tables,1,203,51,nan,nan,3.980392156862745
+msd,mmspec_577,multi-turn conversation,charts,1,168,38,nan,nan,4.421052631578948
+msd,mmspec_578,multi-turn conversation,pdf_pages,1,103,25,nan,nan,4.12
+msd,mmspec_579,multi-turn conversation,charts,1,258,57,nan,nan,4.526315789473684
+msd,mmspec_580,multi-turn conversation,pdf_pages,1,106,23,nan,nan,4.608695652173913
+msd,mmspec_581,multi-turn conversation,pdf_pages,1,96,24,nan,nan,4.0
+msd,mmspec_582,multi-turn conversation,tables,1,107,28,nan,nan,3.8214285714285716
+msd,mmspec_583,multi-turn conversation,tables,1,238,58,nan,nan,4.103448275862069
+msd,mmspec_584,multi-turn conversation,tables,1,1024,152,nan,nan,6.7368421052631575
+msd,mmspec_585,multi-turn conversation,diagrams,1,327,81,nan,nan,4.037037037037037
+msd,mmspec_586,multi-turn conversation,diagrams,1,148,35,nan,nan,4.228571428571429
+msd,mmspec_587,multi-turn conversation,pdf_pages,1,145,29,nan,nan,5.0
+msd,mmspec_588,multi-turn conversation,charts,1,92,21,nan,nan,4.380952380952381
+msd,mmspec_589,multi-turn conversation,tables,1,150,35,nan,nan,4.285714285714286
+msd,mmspec_590,multi-turn conversation,tables,1,124,28,nan,nan,4.428571428571429
+msd,mmspec_591,multi-turn conversation,pdf_pages,1,258,74,nan,nan,3.4864864864864864
+msd,mmspec_592,multi-turn conversation,tables,1,200,40,nan,nan,5.0
+msd,mmspec_593,multi-turn conversation,diagrams,1,111,31,nan,nan,3.5806451612903225
+msd,mmspec_594,multi-turn conversation,pdf_pages,1,177,42,nan,nan,4.214285714285714
+msd,mmspec_595,multi-turn conversation,misc,1,215,42,nan,nan,5.119047619047619
+msd,mmspec_596,multi-turn conversation,tables,1,126,27,nan,nan,4.666666666666667
+msd,mmspec_597,multi-turn conversation,tables,1,123,35,nan,nan,3.5142857142857142
+msd,mmspec_598,multi-turn conversation,pdf_pages,1,126,31,nan,nan,4.064516129032258
+msd,mmspec_599,multi-turn conversation,pdf_pages,1,28,9,nan,nan,3.111111111111111
+msd,mmspec_600,multi-turn conversation,tables,1,1028,223,nan,nan,4.609865470852018
+msd,AVG(600),ALL,ALL,1.205,122.78666666666666,25.831666666666667,nan,nan,5.362396290179453

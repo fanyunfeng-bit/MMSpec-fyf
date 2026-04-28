@@ -38,6 +38,7 @@ from evaluation.utils import (
     iter_eval_samples,
 )
 from evaluation.time_breakdown import build_time_breakdown_tracker
+from evaluation.layer_l2_probe import LayerL2Probe
 
 
 def baseline_forward(
@@ -116,12 +117,29 @@ def evaluate(args):
     print("Loaded model class:", model.__class__.__name__)
     print("Check model training state:", model.training)
     print("CUDA VISIBLE DEVICES:", os.environ.get("CUDA_VISIBLE_DEVICES"))
-    
+
+    # Diagnostic probe: per-layer visual-token L2 distance at prefill.
+    probe = None
+    probe_image_token_id = None
+    if getattr(args, "probe_visual_l2", False):
+        probe_layer_indices = [
+            int(x) for x in args.probe_layers.split(",") if x.strip()
+        ]
+        probe = LayerL2Probe(model, probe_layer_indices)
+        probe_image_token_id = getattr(model.config, "image_token_index", 32000)
+        print(
+            f"[Probe] enabled on layers={probe_layer_indices} "
+            f"topk={args.probe_topk} image_token_id={probe_image_token_id} "
+            f"(resume-skip and JSON save disabled)"
+        )
+
     # Load data
     data = load_mmspec_data(args.data_folder)
     print(f"Loaded {len(data)} samples")
     if getattr(args, "sanity", False):
         run_sanity_check(args, model, tokenizer, data)
+        if probe is not None:
+            probe.remove()
         return
 
     # Warmup
@@ -138,8 +156,12 @@ def evaluate(args):
     print("Warmup done")
     
     # Evaluate
-    existing_ids = load_existing_ids(args.answer_file)
-    print(f"Skipping {len(existing_ids)} already-evaluated samples")
+    if probe is not None:
+        existing_ids = set()  # Probe mode: never skip samples
+        print("[Probe] resume-skip disabled; all samples will be processed.")
+    else:
+        existing_ids = load_existing_ids(args.answer_file)
+        print(f"Skipping {len(existing_ids)} already-evaluated samples")
     for d in tqdm(iter_eval_samples(data, args.batch_size), total=len(data), desc=f"Evaluating (bs={args.batch_size})"):
         if d["id"] in existing_ids:
             continue
@@ -168,19 +190,29 @@ def evaluate(args):
                     torch.cuda.synchronize()
                 start_time = time.time()
                 time_tracker.reset()
-                
+                if probe is not None:
+                    probe.reset()
+
                 output_ids, new_token, idx, dec_time = baseline_forward(
                     **model_inputs,
                     model=model,
                     temperature=args.temperature,
                     max_steps=args.max_new_token,
                 )
-                
+
                 if torch.cuda.is_available():
                     torch.cuda.synchronize()
                 total_time = time.time() - start_time
                 draft_time, target_time = time_tracker.snapshot()
-                
+
+                if probe is not None:
+                    probe.print_topk(
+                        model_inputs["input_ids"],
+                        image_token_id=probe_image_token_id,
+                        topk=args.probe_topk,
+                        sample_id=f"{d['id']}-turn{turn_idx}",
+                    )
+
                 output = process_output(output_ids, tokenizer, input_len)
                 
                 # Store results for this turn
@@ -208,16 +240,43 @@ def evaluate(args):
                 "target_time": turn_target_times,
             })
         
-        save_result(args.answer_file, d, args.model_id, choices)
-    
-    reorg_answer_file(args.answer_file)
-    print(f"Results saved to {args.answer_file}")
+        if probe is None:
+            save_result(args.answer_file, d, args.model_id, choices)
+
+    if probe is None:
+        reorg_answer_file(args.answer_file)
+        print(f"Results saved to {args.answer_file}")
+    else:
+        probe.remove()
+        print("[Probe] done; no JSON written.")
 
 
 def main():
     parser = argparse.ArgumentParser(description="Baseline evaluation for MMSpec")
     parser = get_common_args(parser)
-    
+
+    # Diagnostic probe: per-layer visual-token L2 distance (prefill only).
+    parser.add_argument(
+        "--probe-visual-l2",
+        action="store_true",
+        default=False,
+        help="Diagnostic mode: print per-layer visual-token L2 distances at "
+             "prefill. Disables resume-skip and JSONL save.",
+    )
+    parser.add_argument(
+        "--probe-layers",
+        type=str,
+        default="3,17,22",
+        help="Comma-separated 0-indexed decoder-layer indices to probe "
+             "(default: 3,17,22 = shallow/middle/deep).",
+    )
+    parser.add_argument(
+        "--probe-topk",
+        type=int,
+        default=10,
+        help="Number of top visual tokens (by L2) to print per layer.",
+    )
+
     args = parser.parse_args()
     
     # Set model for prompt building

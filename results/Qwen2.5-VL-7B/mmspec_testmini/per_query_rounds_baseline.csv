@@ -1,0 +1,62 @@
+method,question_id,topic,category,num_turns,total_new_tokens,total_rounds,zero_accept_rounds,zero_accept_ratio,mat
+baseline,mmspec_006,general vqa,default,1,10,10,0,0.0,1.0
+baseline,mmspec_031,general vqa,default,1,20,20,0,0.0,1.0
+baseline,mmspec_039,general vqa,default,1,80,80,0,0.0,1.0
+baseline,mmspec_048,general vqa,default,1,36,36,0,0.0,1.0
+baseline,mmspec_050,general vqa,default,1,38,38,0,0.0,1.0
+baseline,mmspec_084,general vqa,default,1,14,14,0,0.0,1.0
+baseline,mmspec_090,general vqa,default,1,40,40,0,0.0,1.0
+baseline,mmspec_096,general vqa,default,1,44,44,0,0.0,1.0
+baseline,mmspec_097,general vqa,default,1,38,38,0,0.0,1.0
+baseline,mmspec_098,general vqa,default,1,37,37,0,0.0,1.0
+baseline,mmspec_105,text vqa,text reading,1,32,32,0,0.0,1.0
+baseline,mmspec_111,text vqa,text reading,1,58,58,0,0.0,1.0
+baseline,mmspec_115,text vqa,text reading,1,15,15,0,0.0,1.0
+baseline,mmspec_119,text vqa,text reading,1,56,56,0,0.0,1.0
+baseline,mmspec_122,text vqa,text reading,1,111,111,0,0.0,1.0
+baseline,mmspec_125,text vqa,text reading,1,38,38,0,0.0,1.0
+baseline,mmspec_142,text vqa,text reading,1,102,102,0,0.0,1.0
+baseline,mmspec_167,text vqa,text reading,1,73,73,0,0.0,1.0
+baseline,mmspec_182,text vqa,text reading,1,74,74,0,0.0,1.0
+baseline,mmspec_191,text vqa,text reading,1,18,18,0,0.0,1.0
+baseline,mmspec_201,image captioning,image captioning,1,136,136,0,0.0,1.0
+baseline,mmspec_220,image captioning,image captioning,1,294,294,0,0.0,1.0
+baseline,mmspec_236,image captioning,image captioning,1,162,162,0,0.0,1.0
+baseline,mmspec_241,image captioning,image captioning,1,188,188,0,0.0,1.0
+baseline,mmspec_247,image captioning,image captioning,1,194,194,0,0.0,1.0
+baseline,mmspec_257,image captioning,image captioning,1,175,175,0,0.0,1.0
+baseline,mmspec_266,image captioning,image captioning,1,152,152,0,0.0,1.0
+baseline,mmspec_268,image captioning,image captioning,1,178,178,0,0.0,1.0
+baseline,mmspec_286,image captioning,image captioning,1,172,172,0,0.0,1.0
+baseline,mmspec_292,image captioning,image captioning,1,172,172,0,0.0,1.0
+baseline,mmspec_313,chart understanding,chart reasoning,1,12,12,0,0.0,1.0
+baseline,mmspec_327,chart understanding,chart reasoning,1,65,65,0,0.0,1.0
+baseline,mmspec_328,chart understanding,chart reasoning,1,99,99,0,0.0,1.0
+baseline,mmspec_337,chart understanding,chart reasoning,1,257,257,0,0.0,1.0
+baseline,mmspec_340,chart understanding,chart reasoning,1,33,33,0,0.0,1.0
+baseline,mmspec_341,chart understanding,chart reasoning,1,95,95,0,0.0,1.0
+baseline,mmspec_343,chart understanding,chart reasoning,1,82,82,0,0.0,1.0
+baseline,mmspec_357,chart understanding,chart reasoning,1,49,49,0,0.0,1.0
+baseline,mmspec_361,chart understanding,chart reasoning,1,64,64,0,0.0,1.0
+baseline,mmspec_389,chart understanding,chart reasoning,1,106,106,0,0.0,1.0
+baseline,mmspec_401,complex reasoning pro,Manage,1,72,72,0,0.0,1.0
+baseline,mmspec_403,complex reasoning pro,Computer_Science,1,123,123,0,0.0,1.0
+baseline,mmspec_413,complex reasoning pro,Chemistry,1,791,791,0,0.0,1.0
+baseline,mmspec_414,complex reasoning pro,Physics,1,436,436,0,0.0,1.0
+baseline,mmspec_437,complex reasoning pro,Design,1,86,86,0,0.0,1.0
+baseline,mmspec_450,complex reasoning pro,Clinical_Medicine,1,488,488,0,0.0,1.0
+baseline,mmspec_459,complex reasoning pro,Electronics,1,1024,1024,0,0.0,1.0
+baseline,mmspec_465,complex reasoning pro,History,1,103,103,0,0.0,1.0
+baseline,mmspec_469,complex reasoning pro,Music,1,53,53,0,0.0,1.0
+baseline,mmspec_479,complex reasoning pro,Basic_Medical_Science,1,60,60,0,0.0,1.0
+baseline,mmspec_509,multi-turn conversation,Astronomy,3,1119,1119,0,0.0,1.0
+baseline,mmspec_544,multi-turn conversation,Food Recipe,3,1009,1009,0,0.0,1.0
+baseline,mmspec_547,multi-turn conversation,Astronomy,3,755,755,0,0.0,1.0
+baseline,mmspec_553,multi-turn conversation,charts,3,922,922,0,0.0,1.0
+baseline,mmspec_565,multi-turn conversation,tables,2,1221,1221,0,0.0,1.0
+baseline,mmspec_573,multi-turn conversation,charts,1,161,161,0,0.0,1.0
+baseline,mmspec_578,multi-turn conversation,pdf_pages,1,230,230,0,0.0,1.0
+baseline,mmspec_587,multi-turn conversation,pdf_pages,1,172,172,0,0.0,1.0
+baseline,mmspec_589,multi-turn conversation,tables,1,699,699,0,0.0,1.0
+baseline,mmspec_598,multi-turn conversation,pdf_pages,1,209,209,0,0.0,1.0
+baseline,AVG(60),ALL,ALL,1.15,222.53333333333333,222.53333333333333,0.0,0.0,1.0

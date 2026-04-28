@@ -1,0 +1,62 @@
+method,question_id,topic,category,num_turns,total_new_tokens,total_rounds,zero_accept_rounds,zero_accept_ratio,mat
+vispec,mmspec_006,general vqa,default,1,13,3,0,0.0,4.333333333333333
+vispec,mmspec_031,general vqa,default,1,23,8,2,0.25,2.875
+vispec,mmspec_039,general vqa,default,1,66,21,2,0.09523809523809523,3.142857142857143
+vispec,mmspec_048,general vqa,default,1,34,10,2,0.2,3.4
+vispec,mmspec_050,general vqa,default,1,32,9,1,0.1111111111111111,3.5555555555555554
+vispec,mmspec_084,general vqa,default,1,17,5,0,0.0,3.4
+vispec,mmspec_090,general vqa,default,1,45,11,0,0.0,4.090909090909091
+vispec,mmspec_096,general vqa,default,1,59,20,3,0.15,2.95
+vispec,mmspec_097,general vqa,default,1,26,7,0,0.0,3.7142857142857144
+vispec,mmspec_098,general vqa,default,1,37,10,1,0.1,3.7
+vispec,mmspec_105,text vqa,text reading,1,44,11,1,0.09090909090909091,4.0
+vispec,mmspec_111,text vqa,text reading,1,61,19,4,0.21052631578947367,3.210526315789474
+vispec,mmspec_115,text vqa,text reading,1,15,3,0,0.0,5.0
+vispec,mmspec_119,text vqa,text reading,1,61,21,2,0.09523809523809523,2.9047619047619047
+vispec,mmspec_122,text vqa,text reading,1,19,6,1,0.16666666666666666,3.1666666666666665
+vispec,mmspec_125,text vqa,text reading,1,39,20,8,0.4,1.95
+vispec,mmspec_142,text vqa,text reading,1,92,38,4,0.10526315789473684,2.4210526315789473
+vispec,mmspec_167,text vqa,text reading,1,66,22,4,0.18181818181818182,3.0
+vispec,mmspec_182,text vqa,text reading,1,84,25,0,0.0,3.36
+vispec,mmspec_191,text vqa,text reading,1,19,6,0,0.0,3.1666666666666665
+vispec,mmspec_201,image captioning,image captioning,1,149,42,5,0.11904761904761904,3.5476190476190474
+vispec,mmspec_220,image captioning,image captioning,1,234,62,1,0.016129032258064516,3.774193548387097
+vispec,mmspec_236,image captioning,image captioning,1,119,35,2,0.05714285714285714,3.4
+vispec,mmspec_241,image captioning,image captioning,1,214,62,0,0.0,3.4516129032258065
+vispec,mmspec_247,image captioning,image captioning,1,237,72,8,0.1111111111111111,3.2916666666666665
+vispec,mmspec_257,image captioning,image captioning,1,145,49,4,0.08163265306122448,2.9591836734693877
+vispec,mmspec_266,image captioning,image captioning,1,120,37,2,0.05405405405405406,3.2432432432432434
+vispec,mmspec_268,image captioning,image captioning,1,216,58,2,0.034482758620689655,3.7241379310344827
+vispec,mmspec_286,image captioning,image captioning,1,141,41,3,0.07317073170731707,3.4390243902439024
+vispec,mmspec_292,image captioning,image captioning,1,183,54,4,0.07407407407407407,3.388888888888889
+vispec,mmspec_313,chart understanding,chart reasoning,1,13,3,0,0.0,4.333333333333333
+vispec,mmspec_327,chart understanding,chart reasoning,1,67,24,5,0.20833333333333334,2.7916666666666665
+vispec,mmspec_328,chart understanding,chart reasoning,1,93,27,1,0.037037037037037035,3.4444444444444446
+vispec,mmspec_337,chart understanding,chart reasoning,1,93,28,3,0.10714285714285714,3.3214285714285716
+vispec,mmspec_340,chart understanding,chart reasoning,1,37,11,1,0.09090909090909091,3.3636363636363638
+vispec,mmspec_341,chart understanding,chart reasoning,1,62,18,3,0.16666666666666666,3.4444444444444446
+vispec,mmspec_343,chart understanding,chart reasoning,1,84,23,1,0.043478260869565216,3.652173913043478
+vispec,mmspec_357,chart understanding,chart reasoning,1,40,14,2,0.14285714285714285,2.857142857142857
+vispec,mmspec_361,chart understanding,chart reasoning,1,59,19,2,0.10526315789473684,3.1052631578947367
+vispec,mmspec_389,chart understanding,chart reasoning,1,78,29,6,0.20689655172413793,2.689655172413793
+vispec,mmspec_401,complex reasoning pro,Manage,1,115,48,12,0.25,2.3958333333333335
+vispec,mmspec_403,complex reasoning pro,Computer_Science,1,88,30,2,0.06666666666666667,2.933333333333333
+vispec,mmspec_413,complex reasoning pro,Chemistry,1,485,139,11,0.07913669064748201,3.4892086330935252
+vispec,mmspec_414,complex reasoning pro,Physics,1,435,138,8,0.057971014492753624,3.152173913043478
+vispec,mmspec_437,complex reasoning pro,Design,1,84,29,2,0.06896551724137931,2.896551724137931
+vispec,mmspec_450,complex reasoning pro,Clinical_Medicine,1,111,38,10,0.2631578947368421,2.9210526315789473
+vispec,mmspec_459,complex reasoning pro,Electronics,1,865,275,33,0.12,3.1454545454545455
+vispec,mmspec_465,complex reasoning pro,History,1,112,34,3,0.08823529411764706,3.2941176470588234
+vispec,mmspec_469,complex reasoning pro,Music,1,50,16,2,0.125,3.125
+vispec,mmspec_479,complex reasoning pro,Basic_Medical_Science,1,73,25,4,0.16,2.92
+vispec,mmspec_509,multi-turn conversation,Astronomy,3,891,279,32,0.11469534050179211,3.193548387096774
+vispec,mmspec_544,multi-turn conversation,Food Recipe,3,770,255,37,0.1450980392156863,3.019607843137255
+vispec,mmspec_547,multi-turn conversation,Astronomy,3,799,272,32,0.11764705882352941,2.9375
+vispec,mmspec_553,multi-turn conversation,charts,3,874,251,16,0.06374501992031872,3.4820717131474104
+vispec,mmspec_565,multi-turn conversation,tables,2,1177,341,17,0.04985337243401759,3.4516129032258065
+vispec,mmspec_573,multi-turn conversation,charts,1,152,52,5,0.09615384615384616,2.923076923076923
+vispec,mmspec_578,multi-turn conversation,pdf_pages,1,276,88,9,0.10227272727272728,3.1363636363636362
+vispec,mmspec_587,multi-turn conversation,pdf_pages,1,190,67,6,0.08955223880597014,2.8358208955223883
+vispec,mmspec_589,multi-turn conversation,tables,1,719,202,11,0.054455445544554455,3.5594059405940595
+vispec,mmspec_598,multi-turn conversation,pdf_pages,1,259,90,13,0.14444444444444443,2.8777777777777778
+vispec,AVG(60),ALL,ALL,1.15,196.01666666666668,60.86666666666667,5.916666666666667,0.10238750525327812,3.270898100343461

@@ -1,0 +1,3 @@
+method,group,n_samples,n_turns,total_new_tokens,total_wall_time,total_draft_time,total_target_time,MAT,draft_accept_mean,speedup_paired,speedup_global
+baseline,ALL,600,723,73810,1834.0428931713104,0.0,1805.2863506145077,1.0,nan,1.0,1.0
+msd,ALL,600,723,73672,865.9802906513214,114.22788102750201,635.8058548406698,4.753338925091941,3.6854346564711506,1.8233396124934562,2.113920913065883
