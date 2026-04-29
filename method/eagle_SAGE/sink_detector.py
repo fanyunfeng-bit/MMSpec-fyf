@@ -69,10 +69,21 @@ class L2NormSinkDetector:
                     f"not divisible by group size {group} (spatial_merge_size="
                     f"{self.spatial_merge_size}). Check hook target."
                 )
-            norms = norms.view(-1, group).max(dim=-1).values  # [V_post]
-        # print(f"[SAGE norms] V={norms.numel()} min={norms.min():.3f} max={norms.max():.3f} mean={norms.mean():.3f} values={norms.tolist()}")
-        count = (norms > 100).sum().item()
-        print(f"[SAGE norms] 大于100的数量: {count}")
+            norms = norms.view(-1, group).max(dim=-1).values  # [V_post] (window order for Qwen2.5-VL)
+
+        # Convert per-post-merger norms from window-permuted order back to
+        # spatial (LLM-input) order. Required for Qwen2.5-VL because the hook
+        # captures features before the visual tower's reverse_indices unshuffle;
+        # without this, norms are aligned to the wrong LLM positions.
+        rev = ctx.window_reverse_indices
+        if rev is not None:
+            if rev.numel() != norms.numel():
+                raise RuntimeError(
+                    f"L2NormSinkDetector: window_reverse_indices size "
+                    f"({rev.numel()}) != per-post-merger norms ({norms.numel()})."
+                )
+            norms = norms[rev.to(norms.device)]
+
         # Positions in the sequence that are visual tokens.
         vis_idx = torch.nonzero(vmask, as_tuple=False).squeeze(-1)  # [V_post]
         if vis_idx.numel() != norms.numel():
@@ -96,7 +107,7 @@ class L2NormSinkDetector:
                 top_idx = torch.topk(norms, k=k).indices
                 sink_local = torch.zeros_like(norms, dtype=torch.bool)
                 sink_local[top_idx] = True
-
+        # print(f"[SAGE sink ids] sample={ctx.meta.get('sample_id')} {torch.nonzero(sink_local).flatten().tolist()}")
         # Scatter back to full-sequence mask.
         sink_full = torch.zeros_like(vmask)
         sink_full[vis_idx[sink_local]] = True

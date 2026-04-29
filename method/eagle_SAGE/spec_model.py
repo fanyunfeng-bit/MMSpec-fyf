@@ -181,7 +181,11 @@ class SageSpecModel(EagleSpecModel):
                 )
             else:
                 visual_mask_1d = sage_self._build_visual_mask_1d(inp_ids)
-                pre_proj = sage_self.vision_hook.pop()
+                # NOTE: do NOT pop from vision_hook here. For LLaVA-1.5 the
+                # vision_tower fires inside sage_initialize_tree's model(...)
+                # call (no parent-side pre-fire branch), so popping early
+                # returns the previous sample's stale features. The pop now
+                # happens inside sage_initialize_tree, AFTER the model forward.
                 result = sage_initialize_tree(
                     inp_ids,
                     model,
@@ -192,9 +196,9 @@ class SageSpecModel(EagleSpecModel):
                     image_mask=image_mask,
                     visual_processor=sage_self.visual_processor,
                     visual_mask_1d=visual_mask_1d,
-                    pre_projector_features=pre_proj,
                     target_position_ids=None,
                     debug=sage_self.sage_debug,
+                    sample_id=sage_self._sage_sample_id,
                     **kw,
                 )
 

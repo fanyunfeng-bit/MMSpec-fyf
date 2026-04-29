@@ -49,6 +49,7 @@ def sage_initialize_tree(
     pre_projector_features=None,
     target_position_ids=None,
     debug: bool = False,
+    sample_id=None,
     **kwargs,
 ):
     """SAGE-aware replacement for eagle.utils.initialize_tree.
@@ -72,6 +73,19 @@ def sage_initialize_tree(
         inputs_embeds=inputs_embeds,
         **kwargs,
     )
+
+    # Pop pre-projector vision features AFTER the model forward. For LLaVA-1.5,
+    # the parent specgenerate has no pre-fire branch — the vision_tower fires
+    # only inside this model() call — so popping earlier returns the previous
+    # sample's stale features. For Qwen2.5-VL and LLaVA-Next, the parent does
+    # pre-fire visual; the model() above passes inputs_embeds (already populated
+    # with image features) so base_model.forward does NOT re-fire the vision
+    # encoder, and last_features stays as the parent's pre-call capture.
+    vh = getattr(model, "vision_hook", None)
+    if vh is not None:
+        popped = vh.pop()
+        if popped is not None:
+            pre_projector_features = popped
 
     # Sample the first target token (unchanged from eagle.utils.initialize_tree).
     if logits_processor is not None:
@@ -116,14 +130,36 @@ def sage_initialize_tree(
                 else torch.nn.functional.pad(vmask, (0, hs_len - vmask.numel()))
             )
 
+        # Qwen2.5-VL: hook on visual.blocks[-1] captures features in
+        # window-permuted order (the visual tower applies reverse_indices only
+        # AFTER the merger). Compute the reverse permutation here so downstream
+        # stages can convert per-post-merger-token quantities back to spatial
+        # (LLM-input) order. None for LLaVA (no window permutation).
+        window_reverse_indices = None
+        arch_name = model.base_model.config.architectures[0]
+        image_grid_thw = kwargs.get("image_grid_thw")
+        if (
+            arch_name == "Qwen2_5_VLForConditionalGeneration"
+            and image_grid_thw is not None
+        ):
+            try:
+                window_index, _ = model.base_model.visual.get_window_index(
+                    image_grid_thw
+                )
+                window_reverse_indices = torch.argsort(window_index).to(device)
+            except Exception:
+                window_reverse_indices = None
+
         ctx = VisualContext(
             hidden_states=hidden_states,
             input_ids=input_ids[:, :hs_len].clone(),
             position_ids=pids,
             visual_mask=vmask,
             pre_projector_features=pre_projector_features,
-            arch=model.base_model.config.architectures[0],
+            arch=arch_name,
+            window_reverse_indices=window_reverse_indices,
         )
+        ctx.meta["sample_id"] = sample_id
         ctx = visual_processor.run(ctx)
 
         hidden_states = ctx.hidden_states
