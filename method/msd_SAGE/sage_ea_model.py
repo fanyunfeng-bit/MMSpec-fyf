@@ -81,7 +81,17 @@ class SageEaModel(EaModel):
         self._maybe_expand_draft_embed_tokens()
 
     def _maybe_expand_draft_embed_tokens(self) -> None:
-        """Expand draft embed_tokens to base lm_head vocab size if smaller."""
+        """Expand draft embed_tokens to base lm_head vocab size if smaller.
+
+        IMPORTANT: the new Embedding's parameters MUST inherit
+        `requires_grad=False` from the original. MSD's draft `forward`
+        branches at line 191 (`if any(p.requires_grad for p in
+        self.embed_tokens.parameters())`) — a True there flips the model into
+        a training-mode stitching path that produces an inputs_embeds tensor
+        of compact length (text-only, drops the visual prefix region) and
+        crashes at the later `torch.cat((inputs_embeds, hidden_states),
+        dim=-1)` because the lengths no longer match.
+        """
         try:
             base_vocab = int(self._get_lm_head().out_features)
         except Exception:
@@ -91,25 +101,26 @@ class SageEaModel(EaModel):
         if draft_vocab >= base_vocab:
             return
         old_weight = embed.weight.data
+        old_requires_grad = embed.weight.requires_grad
         new_embed = torch.nn.Embedding(
             num_embeddings=base_vocab,
             embedding_dim=embed.embedding_dim,
             padding_idx=embed.padding_idx,
         ).to(device=old_weight.device, dtype=old_weight.dtype)
-        # Copy original rows; new rows default to whatever Embedding init gives
-        # (Normal(0, 1)) — overwrite them with the mean of existing rows so the
-        # draft outputs reasonable embeddings instead of huge random vectors
-        # for tokens it was never trained on.
         with torch.no_grad():
             new_embed.weight[:draft_vocab] = old_weight
             mean_row = old_weight.mean(dim=0)
             new_embed.weight[draft_vocab:] = mean_row
+        # Match the original parameter's grad state (will be False under
+        # model.eval() / inference_mode evaluation).
+        new_embed.weight.requires_grad_(old_requires_grad)
         self.ea_layer.embed_tokens = new_embed
         self.ea_layer.vocab_size = base_vocab
         if self._sage_debug:
             print(
                 f"[SAGE-MSD] expanded draft embed_tokens: "
-                f"{draft_vocab} -> {base_vocab} (filled new rows with row-mean)",
+                f"{draft_vocab} -> {base_vocab} "
+                f"(requires_grad={old_requires_grad}, filled new rows with row-mean)",
                 flush=True,
             )
 
