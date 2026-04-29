@@ -50,6 +50,13 @@ class VisualContext:
     arch: str = ""
     """base_model.config.architectures[0]."""
 
+    window_reverse_indices: torch.Tensor | None = None
+    """[V_post] long; for Qwen2.5-VL only. Maps window-permuted post-merger
+    group order back to spatial (LLM-input) order. None for LLaVA (no window
+    permutation). Consumed by stages whose `pre_projector_features` come from
+    a hook on `visual.blocks[-1]`, which captures features BEFORE the
+    visual-tower's reverse_indices unshuffle."""
+
     meta: dict = field(default_factory=dict)
     """Free-form counters and debug info."""
 

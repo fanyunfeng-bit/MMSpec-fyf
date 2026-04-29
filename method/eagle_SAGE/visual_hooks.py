@@ -76,6 +76,8 @@ class VisionTowerHook:
         if self.drop_cls and feats.dim() == 3 and feats.shape[1] > 1:
             feats = feats[:, 1:, :]
         self.last_features = feats
+        # self.last_features = feats.detach().clone()
+        # print(f"[VHook] shape={tuple(feats.shape)} norm_mean={feats.float().pow(2).sum(-1).sqrt().mean().item():.3f}")
 
     def pop(self) -> torch.Tensor | None:
         out = self.last_features
