@@ -27,6 +27,81 @@ from method.msd.utils import temp_cache, evaluate_posterior  # noqa: F401
 from method.eagle_SAGE.visual_processor import VisualContext
 
 
+# Set SAGE_MSD_TRIM_DEBUG=1 to print before/after lengths of every trim.
+import os as _os
+_TRIM_DEBUG = _os.environ.get("SAGE_MSD_TRIM_DEBUG", "0") == "1"
+
+
+def _trim_draft_stable_kv(model) -> None:
+    """Drop the `depth * top_k` speculative tokens that MSD's `topK_genrate`
+    appends to `model.ea_layer.stable_kv` during its tree-expansion loop.
+
+    Why this is needed under SAGE compression
+    -----------------------------------------
+    `topK_genrate` does `self.stable_kv = past_key_values` BEFORE its depth
+    loop, but the loop extends `past_key_values` in place (HF-cache style),
+    so by the time the function returns `stable_kv` actually contains
+    `(committed prefix) + (depth * top_k speculative tokens)`.
+
+    Vanilla MSD masks this on the next call via the arithmetic
+        kv_len = stable_kv_len - image_extra_tokens
+    where `image_extra_tokens = 576` (HF-LLaVA visual span). The 576 happens
+    to be large enough that `kv_len` stays below `input_ids.shape[1]`, so
+    `use_stable_kv` stays True and the draft incrementally encodes only the
+    new accepted tokens.
+
+    Under SAGE compression, `image_extra_tokens = K` (e.g. 16). `kv_len`
+    overshoots `input_ids.shape[1]`, MSD's `use_stable_kv=False` branch
+    fires, and the draft falls into the from-scratch path with
+    `hidden_states (length A+1)` against `inputs_embeds (length C+A+2)` —
+    a shape mismatch that triggers a CUDA OOB inside the depth loop.
+
+    Trimming back to `length - depth*top_k` after each topK_genrate keeps
+    the draft cache equal to "committed prefix only", which is what the
+    next round's incremental forward expects. This does NOT touch the
+    target's KV cache (a separate DynamicCache); the target's verify path
+    and accept/reject logic are unchanged → speculative decoding stays
+    lossless.
+    """
+    skv = getattr(model.ea_layer, "stable_kv", None)
+    if skv is None:
+        return
+    drop = int(getattr(model.ea_layer, "depth", 0)) * int(
+        getattr(model.ea_layer, "top_k", 0)
+    )
+    if drop <= 0:
+        return
+    new_kv = []
+    trimmed_any = False
+    before_len = None
+    for layer_kv in skv:
+        if (
+            isinstance(layer_kv, (tuple, list))
+            and len(layer_kv) >= 2
+            and torch.is_tensor(layer_kv[0])
+            and layer_kv[0].dim() >= 3
+            and layer_kv[0].shape[2] > drop
+        ):
+            cur = layer_kv[0].shape[2]
+            if before_len is None:
+                before_len = cur
+            keep = cur - drop
+            k = layer_kv[0][:, :, :keep, :].contiguous()
+            v = layer_kv[1][:, :, :keep, :].contiguous()
+            new_kv.append((k, v))
+            trimmed_any = True
+        else:
+            new_kv.append(layer_kv)
+    if trimmed_any:
+        model.ea_layer.stable_kv = tuple(new_kv)
+        if _TRIM_DEBUG:
+            print(
+                f"[SAGE-MSD trim] stable_kv {before_len} -> {before_len - drop} "
+                f"(dropped depth*top_k = {drop})",
+                flush=True,
+            )
+
+
 def _build_visual_mask_1d(input_ids: torch.Tensor, image_token_id: int) -> torch.Tensor:
     """Boolean [L] mask marking visual placeholder positions in the FULL prefill input_ids."""
     return (input_ids[0] == image_token_id).to(torch.bool)
@@ -261,6 +336,10 @@ def sage_initialize_tree_hf(
     finally:
         temp_cache.use_msd = False
 
+    # SAGE: drop speculative depth-loop tokens from the draft cache so
+    # subsequent rounds' kv_len math stays inside input_ids.shape[1].
+    _trim_draft_stable_kv(model)
+
     return (
         draft_tokens,
         retrieve_indices,
@@ -387,6 +466,10 @@ def sage_update_inference_inputs_hf(
         )
     finally:
         temp_cache.use_msd = False
+
+    # SAGE: same trim as in sage_initialize_tree_hf — drop the depth-loop
+    # speculative additions so the next round's kv_len math is consistent.
+    _trim_draft_stable_kv(model)
 
     new_token += accept_length + 1
     # NOTE: we return the "uncompressed-prefix" ea_inputs_embeds so subsequent
