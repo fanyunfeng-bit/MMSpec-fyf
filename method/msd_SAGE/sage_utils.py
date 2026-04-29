@@ -336,10 +336,6 @@ def sage_initialize_tree_hf(
     finally:
         temp_cache.use_msd = False
 
-    # SAGE: drop speculative depth-loop tokens from the draft cache so
-    # subsequent rounds' kv_len math stays inside input_ids.shape[1].
-    _trim_draft_stable_kv(model)
-
     return (
         draft_tokens,
         retrieve_indices,
@@ -466,10 +462,6 @@ def sage_update_inference_inputs_hf(
         )
     finally:
         temp_cache.use_msd = False
-
-    # SAGE: same trim as in sage_initialize_tree_hf — drop the depth-loop
-    # speculative additions so the next round's kv_len math is consistent.
-    _trim_draft_stable_kv(model)
 
     new_token += accept_length + 1
     # NOTE: we return the "uncompressed-prefix" ea_inputs_embeds so subsequent

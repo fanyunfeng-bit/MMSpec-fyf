@@ -60,12 +60,58 @@ class SageEaModel(EaModel):
         `base_model.vision_tower` is called (typically inside
         `get_inputs_embeds`). The compressor stage in `visual_processor`
         consumes them at prefill time.
+
+        Also expands `ea_layer.embed_tokens` to match the base model's
+        lm_head vocab size if smaller. SAGE's compressed visual context
+        causes the draft to occasionally predict special tokens
+        (e.g. image_token_index=32000) which are valid for the base
+        lm_head (vocab=32064 on LLaVA-1.5) but OOB for the upstream MSD
+        draft embed table (vocab=32000). The OOB CUDA assert surfaces
+        asynchronously at the next op (apply_rotary_pos_emb's
+        cos[position_ids] indexing). Vanilla MSD never trips this on
+        testmini because its full-visual draft barely ever samples a
+        token in [32000, 32064) — SAGE's sparser visual context does.
         """
         self._sage_visual_processor = visual_processor
         self._sage_image_token_id = int(image_token_id)
         self._sage_debug = bool(debug)
         if self._sage_vision_hook is None:
             self._sage_vision_hook = VisionTowerHook(self.base_model)
+
+        self._maybe_expand_draft_embed_tokens()
+
+    def _maybe_expand_draft_embed_tokens(self) -> None:
+        """Expand draft embed_tokens to base lm_head vocab size if smaller."""
+        try:
+            base_vocab = int(self._get_lm_head().out_features)
+        except Exception:
+            return
+        embed = self.ea_layer.embed_tokens
+        draft_vocab = int(embed.num_embeddings)
+        if draft_vocab >= base_vocab:
+            return
+        old_weight = embed.weight.data
+        new_embed = torch.nn.Embedding(
+            num_embeddings=base_vocab,
+            embedding_dim=embed.embedding_dim,
+            padding_idx=embed.padding_idx,
+        ).to(device=old_weight.device, dtype=old_weight.dtype)
+        # Copy original rows; new rows default to whatever Embedding init gives
+        # (Normal(0, 1)) — overwrite them with the mean of existing rows so the
+        # draft outputs reasonable embeddings instead of huge random vectors
+        # for tokens it was never trained on.
+        with torch.no_grad():
+            new_embed.weight[:draft_vocab] = old_weight
+            mean_row = old_weight.mean(dim=0)
+            new_embed.weight[draft_vocab:] = mean_row
+        self.ea_layer.embed_tokens = new_embed
+        self.ea_layer.vocab_size = base_vocab
+        if self._sage_debug:
+            print(
+                f"[SAGE-MSD] expanded draft embed_tokens: "
+                f"{draft_vocab} -> {base_vocab} (filled new rows with row-mean)",
+                flush=True,
+            )
 
     def remove_sage_hook(self) -> None:
         if self._sage_vision_hook is not None:
