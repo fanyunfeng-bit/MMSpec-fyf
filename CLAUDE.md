@@ -28,6 +28,16 @@ Direct Python invocation (all eval scripts use `-m` module syntax):
 python -m evaluation.eval_baseline_mmspec --base-model-path <path> --data-folder dataset/MMSpec/testmini --answer-file results/out.jsonl --model-id baseline --temperature 0 --max-new-token 1024
 ```
 
+### Summarizing Results
+After eval runs finish, aggregate per-method metrics (MAT, walltime, speedup vs. baseline) into a CSV:
+```bash
+bash scripts/summarize_metrics.sh <model> [split] [temperature] [method] [extra args...]
+# e.g.
+bash scripts/summarize_metrics.sh Qwen2.5-VL-7B test 0 all --group-by topic
+bash scripts/summarize_metrics.sh Qwen2.5-VL-7B test 0 msd      # baseline included automatically for speedup
+```
+CSV is written into `results/<model>/mmspec_<split>/` next to the raw JSONL. Underlying module: `evaluation.summarize_metrics`. Per-query/per-round breakdowns: `evaluation.per_query_round_stats`; layer-wise L2 probing: `evaluation.layer_l2_probe`.
+
 ### Training Draft Models
 ```bash
 # EAGLE 1/2 (Accelerate)
@@ -53,7 +63,7 @@ Every eval script follows the same flow:
 7. **Resume support** -- `load_existing_ids()` skips already-evaluated samples; `reorg_answer_file()` deduplicates
 
 ### Method Implementations (`method/`)
-Each method folder (eagle, vispec, msd, medusa, sam, lookahead, pld, recycling, etc.) contains:
+Each method folder (eagle, eagle2, eagle3, eagle_SAGE, vispec, msd, medusa, sam, lookahead, pld, recycling) contains:
 - `spec_model*.py` -- `SpecModel` class with `from_pretrained()` and generation method (`specgenerate`/`msdgenerate`)
 - `cnets*.py` -- draft architecture/heads
 - `kv_cache.py` -- KV cache management
