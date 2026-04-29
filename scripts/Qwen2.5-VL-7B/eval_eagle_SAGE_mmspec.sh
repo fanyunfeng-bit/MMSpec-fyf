@@ -46,6 +46,9 @@ echo "Output: ${ANSWER_FILE}"
 echo ""
 
 mkdir -p "${RESULT_DIR}"
+if [[ "${OVERWRITE:-0}" == "1" ]]; then                                                                  
+        rm -f "${ANSWER_FILE}"                                                          
+fi
 
 python -m evaluation.eval_eagle_SAGE_mmspec \
     --base-model-path "${BASE_MODEL}" \
