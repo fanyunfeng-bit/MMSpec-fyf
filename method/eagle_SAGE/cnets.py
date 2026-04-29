@@ -1,10 +1,24 @@
 """SageModel: EAGLE draft model with SAGE-aware position_ids propagation.
 
-Subclass of `method.eagle.cnets.Model`. The only override is `topK_genrate`,
-which now accepts an optional `position_ids` parameter that is propagated into
-the FIRST draft forward (the prefill). The tree-expansion loop is unchanged:
-new tree tokens are always post-visual, their position_ids come from
-`len_posi + self.position_ids`.
+Subclass of `method.eagle.cnets.Model`. Two extensions to `topK_genrate`:
+
+1. Accepts an optional `position_ids` argument that is propagated into the
+   FIRST draft forward (the prefill). Required for prefill-time visual
+   repositioning so each kept visual token rotates by its true position.
+
+2. When `_sage_keep_mask` and `_sage_original_prefix_len` are set on the
+   instance (by `sage_initialize_tree` after VisualCompressor runs), AND the
+   incoming `input_ids` carries the original (uncompressed) prefix layout
+   (i.e. shape[1] > _sage_original_prefix_len), this method compresses the
+   prefix portion through the keep mask before the standard EAGLE flow runs.
+   This is required on subsequent calls (from update_inference_inputs), which
+   re-pass the FULL original input_ids while the draft's stable_kv is sized to
+   the COMPRESSED prefix.
+
+Tree-expansion loop is unchanged in shape; the only edit is that the per-loop
+`position_ids` offset is `max(prefix position_ids) + 1` instead of
+`input_ids.shape[1]`. They are equal in the no-compression case (positions are
+contiguous arange) and differ when compression is active.
 """
 from __future__ import annotations
 
@@ -40,14 +54,43 @@ class SageModel(EagleModel):
         image_mask=None,
         position_ids=None,
     ):
-        """Identical to EagleModel.topK_genrate except the FIRST self(...) call
-        forwards the caller-provided `position_ids`. Tree-expansion code path is
-        unchanged.
-        """
+        """EAGLE topK_genrate with optional first-call position_ids and SAGE
+        prefix compression. See module docstring."""
         input_ids = input_ids.to(hidden_states.device)
         total_tokens = self.total_tokens
         depth = self.depth
         top_k = self.top_k
+
+        # --- SAGE prefix compression on subsequent calls -----------------
+        # update_inference_inputs re-passes the FULL ORIGINAL prefix; the
+        # draft's stable_kv is sized to the COMPRESSED prefix. Slice down to
+        # match. On the first call (from sage_initialize_tree), input_ids was
+        # already compressed by the pipeline so this branch is skipped.
+        keep_mask = getattr(self, "_sage_keep_mask", None)
+        original_prefix_len = getattr(self, "_sage_original_prefix_len", None)
+        if (
+            keep_mask is not None
+            and original_prefix_len is not None
+            and input_ids.shape[1] >= original_prefix_len + 1
+            and keep_mask.shape[0] == original_prefix_len
+        ):
+            keep_mask = keep_mask.to(input_ids.device)
+            prefix = input_ids[:, :original_prefix_len]
+            tail = input_ids[:, original_prefix_len:]
+            compressed_prefix = prefix[:, keep_mask]
+            input_ids = torch.cat([compressed_prefix, tail], dim=1)
+
+            # SAGE convention (matches sage_initialize_tree): position_ids
+            # length = post-shift input_ids length = pre-shift length - 1
+            # (i.e. excludes the LAST pre-shift element, which is the sample).
+            kept_pos = torch.nonzero(keep_mask, as_tuple=False).squeeze(-1).long()
+            tail_pos = torch.arange(
+                original_prefix_len,
+                original_prefix_len + tail.shape[1] - 1,
+                device=input_ids.device,
+                dtype=torch.long,
+            )
+            position_ids = torch.cat([kept_pos, tail_pos], dim=0)[None, :]
 
         sample_token = input_ids[:, -1]
 
@@ -117,9 +160,23 @@ class SageModel(EagleModel):
         tree_mask = self.tree_mask_init
         topk_cs_index = torch.arange(top_k, device=self.embed_tokens.weight.device)
 
+        # Tree-expansion next-position offset: continue from the LAST position
+        # used in the prefix, not from input_ids.shape[1]. Under compression
+        # the latter is smaller than the true last position; without this fix
+        # new tree tokens would land in the middle of the original positions.
+        if position_ids is not None:
+            if position_ids.dim() == 2:
+                next_pos_offset = int(position_ids[0, -1].item()) + 1
+            elif position_ids.dim() == 3:
+                next_pos_offset = int(position_ids[..., -1].max().item()) + 1
+            else:
+                next_pos_offset = len_posi
+        else:
+            next_pos_offset = len_posi
+
         for i in range(depth):
             self.tree_mask = tree_mask
-            position_ids_loop = len_posi + self.position_ids
+            position_ids_loop = next_pos_offset + self.position_ids
             out_hidden, past_key_values = self(
                 input_hidden,
                 input_ids=input_ids,
@@ -127,7 +184,7 @@ class SageModel(EagleModel):
                 position_ids=position_ids_loop,
                 use_cache=True,
             )
-            len_posi += 1
+            next_pos_offset += 1
 
             bias1 = top_k if i > 0 else 0
             bias2 = max(0, i - 1)

@@ -61,9 +61,15 @@ def evaluate(args):
     )
     tokenizer = model.get_tokenizer()
 
-    # Wire the VisualProcessor pipeline (SinkDetector + SinkFirstRepositioner).
+    # Wire the VisualProcessor pipeline. Pass base_model + image_token_id so
+    # the (optional) VisualCompressor stage can hook a target LLM layer and
+    # know which token id marks visual placeholders.
+    image_token_id = model._resolve_image_token_id()
     model.visual_processor = VisualProcessor.from_args(
-        args, spatial_merge_size=model.vision_hook.spatial_merge_size
+        args,
+        spatial_merge_size=model.vision_hook.spatial_merge_size,
+        base_model=model.base_model,
+        image_token_id=image_token_id,
     )
     model.sage_debug = bool(getattr(args, "sage_debug", False))
 
@@ -265,6 +271,30 @@ def main():
         action="store_true",
         default=False,
         help="Print per-call SAGE diagnostics (num_visual, num_sinks).",
+    )
+
+    # Visual compressor (drops non-selected visual tokens before draft forward)
+    parser.add_argument(
+        "--sage-enable-compressor",
+        type=lambda s: s.lower() not in ("false", "0", "no"),
+        default=False,
+        help="Enable VisualCompressor: keep only sinks ∪ TI-Prob top-k visual "
+             "tokens before the draft model. Mutates draft input length.",
+    )
+    parser.add_argument(
+        "--sage-compressor-layer",
+        type=int,
+        default=16,
+        help="Target LLM decoder layer at which to compute TI-Prob alpha for "
+             "compression (default 16).",
+    )
+    parser.add_argument(
+        "--sage-compressor-topk",
+        type=int,
+        default=10,
+        help="Number of TI-Prob visual tokens to keep, in addition to sinks. "
+             "If a TI top-k pick overlaps a sink, the next-ranked candidate is "
+             "promoted (push-down).",
     )
 
     # Text-importance probe (TGVC-style top-K visual tokens by avg attention from text)

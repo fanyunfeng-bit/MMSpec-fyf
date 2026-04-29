@@ -87,11 +87,23 @@ class VisualProcessor:
         return bool(self.gate.should_draft(ctx, **kwargs))
 
     @classmethod
-    def from_args(cls, args, spatial_merge_size: int = 1) -> "VisualProcessor":
+    def from_args(
+        cls,
+        args,
+        spatial_merge_size: int = 1,
+        base_model=None,
+        image_token_id=None,
+        video_token_id=None,
+    ) -> "VisualProcessor":
         """Build a processor from argparse flags.
 
-        Activates SinkDetector + SinkFirstRepositioner by default. Future
-        plug-ins can be wired here guarded by their own `--sage-enable-*` flags.
+        Stages, in order:
+          1. L2NormSinkDetector       (when --sage-enable-sink-detection)
+          2. VisualCompressor         (when --sage-enable-compressor; requires
+                                       base_model and image_token_id)
+          3. SinkFirstRepositioner    (when --sage-enable-repositioning)
+        Compressor + repositioner together is a no-op (compressor already
+        produces a sparse layout in original spatial order); enable just one.
         """
         from .repositioner import SinkFirstRepositioner
         from .sink_detector import L2NormSinkDetector
@@ -104,6 +116,22 @@ class VisualProcessor:
                     value=args.sage_threshold_value,
                     min_sinks=getattr(args, "sage_min_sinks", 0),
                     spatial_merge_size=spatial_merge_size,
+                )
+            )
+        if getattr(args, "sage_enable_compressor", False):
+            if base_model is None or image_token_id is None:
+                raise ValueError(
+                    "VisualProcessor.from_args: --sage-enable-compressor "
+                    "requires base_model and image_token_id."
+                )
+            from .visual_compressor import VisualCompressor
+            vp.register_stage(
+                VisualCompressor(
+                    base_model=base_model,
+                    layer_idx=int(getattr(args, "sage_compressor_layer", 16)),
+                    topk=int(getattr(args, "sage_compressor_topk", 10)),
+                    image_token_id=int(image_token_id),
+                    video_token_id=video_token_id,
                 )
             )
         if getattr(args, "sage_enable_repositioning", True):

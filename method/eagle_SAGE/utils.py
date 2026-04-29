@@ -168,10 +168,21 @@ def sage_initialize_tree(
         # its caller-fed length is L_prefill+1). Do NOT slice or append here.
         spec_position_ids = ctx.position_ids
 
-        # input_ids_for_draft = reordered prefix + the newly sampled token.
+        # input_ids_for_draft = compressed/reordered prefix + the newly sampled
+        # token. ctx.input_ids may be shorter than the original prefix if a
+        # VisualCompressor stage ran.
         input_ids_for_draft = torch.cat(
             (ctx.input_ids, input_ids[:, hs_len:]), dim=1
         )
+
+        # If a VisualCompressor stage produced a keep_mask, stash it on the
+        # draft so that subsequent topK_genrate calls (from update_inference_inputs,
+        # which re-pass the full original input_ids) can compress to match the
+        # draft's stable_kv layout. original_prefix_len = pre-compression hs_len.
+        keep_full = ctx.meta.get("sage_keep_mask_full")
+        if keep_full is not None and hasattr(model, "spec_layer"):
+            model.spec_layer._sage_keep_mask = keep_full.to(hidden_states.device)
+            model.spec_layer._sage_original_prefix_len = int(hs_len)
 
         if debug:
             nv = ctx.meta.get("num_visual", 0)
@@ -181,8 +192,19 @@ def sage_initialize_tree(
                 if visual_processor.stages and hasattr(visual_processor.stages[0], "mode")
                 else "-"
             )
+            comp_len = ctx.meta.get("compressed_len")
+            n_kept_v = ctx.meta.get("num_visual_after")
+            n_sinks_kept = ctx.meta.get("num_sinks_kept")
+            n_ti_kept = ctx.meta.get("num_ti_kept")
+            extra = ""
+            if comp_len is not None:
+                extra = (
+                    f" kept_visual={n_kept_v} (sinks={n_sinks_kept}+ti={n_ti_kept})"
+                    f" compressed_len={comp_len}"
+                )
             print(
-                f"[SAGE] prefill_len={hs_len} visual={nv} sinks={ns} (mode={mode})"
+                f"[SAGE] prefill_len={hs_len} visual={nv} sinks={ns} "
+                f"(mode={mode}){extra}"
             )
     else:
         input_ids_for_draft = input_ids

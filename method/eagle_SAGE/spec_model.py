@@ -157,6 +157,14 @@ class SageSpecModel(EagleSpecModel):
         if sage_self.text_importance_probe is not None:
             sage_self.text_importance_probe.reset()
 
+        # Reset SAGE compression state so a previous turn's keep_mask does not
+        # leak into this prefill's wrapped_initialize_tree branch (where the
+        # mask gets re-set if the compressor stage runs).
+        if hasattr(sage_self.spec_layer, "_sage_keep_mask"):
+            sage_self.spec_layer._sage_keep_mask = None
+        if hasattr(sage_self.spec_layer, "_sage_original_prefix_len"):
+            sage_self.spec_layer._sage_original_prefix_len = None
+
         def wrapped_initialize_tree(
             inp_ids,
             model,

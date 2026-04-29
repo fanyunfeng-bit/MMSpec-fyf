@@ -16,11 +16,13 @@ TOP_K=8
 TOTAL_TOKEN=30
 
 # SAGE parameters
-# SAGE_THRESHOLD_MODE="topk_ratio"   # abs | topk_ratio
-# SAGE_THRESHOLD_VALUE=0.1
-SAGE_THRESHOLD_MODE="abs"   # abs | topk_ratio
+SAGE_THRESHOLD_MODE="abs"          # abs | topk_ratio
 SAGE_THRESHOLD_VALUE=100
 SAGE_MIN_SINKS=0
+SAGE_ENABLE_REPOSITIONING="false"  # disabled when compressor is on
+SAGE_ENABLE_COMPRESSOR="true"      # drop non-selected visual tokens
+SAGE_COMPRESSOR_LAYER=16
+SAGE_COMPRESSOR_TOPK=10
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PROJECT_ROOT="$( cd "$SCRIPT_DIR/../.." && pwd )"
@@ -56,7 +58,11 @@ python -m evaluation.eval_eagle_SAGE_mmspec \
     --max-new-token "${MAX_NEW_TOKEN}" \
     --sage-threshold-mode "${SAGE_THRESHOLD_MODE}" \
     --sage-threshold-value "${SAGE_THRESHOLD_VALUE}" \
-    --sage-min-sinks "${SAGE_MIN_SINKS}"
+    --sage-min-sinks "${SAGE_MIN_SINKS}" \
+    --sage-enable-repositioning "${SAGE_ENABLE_REPOSITIONING}" \
+    --sage-enable-compressor "${SAGE_ENABLE_COMPRESSOR}" \
+    --sage-compressor-layer "${SAGE_COMPRESSOR_LAYER}" \
+    --sage-compressor-topk "${SAGE_COMPRESSOR_TOPK}"
 
 echo ""
 echo "SAGE (EAGLE) evaluation complete!"

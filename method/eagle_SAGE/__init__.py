@@ -16,6 +16,7 @@ from .sink_detector import L2NormSinkDetector
 from .repositioner import SinkFirstRepositioner
 from .visual_hooks import VisionTowerHook
 from .text_importance_probe import TextImportanceProbe
+from .visual_compressor import VisualCompressor
 
 __all__ = [
     "SpecModel",
@@ -26,6 +27,7 @@ __all__ = [
     "SinkFirstRepositioner",
     "VisionTowerHook",
     "TextImportanceProbe",
+    "VisualCompressor",
 ]
 
 SageSpecModel = SpecModel
